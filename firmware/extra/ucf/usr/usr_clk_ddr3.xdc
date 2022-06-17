@@ -1,0 +1,26 @@
+create_clock -name ddr3_sys_clk_p -period 4.158    [get_ports ddr3_sys_clk_p]
+set_property PACKAGE_PIN H27                       [get_ports ddr3_sys_clk_p]
+set_property IOSTANDARD DIFF_SSTL15                [get_ports ddr3_sys_clk_p]
+set_property DIFF_TERM true                        [get_ports ddr3_sys_clk_p]
+set_property PACKAGE_PIN G27                       [get_ports ddr3_sys_clk_n]
+set_property IOSTANDARD DIFF_SSTL15                [get_ports ddr3_sys_clk_n]
+set_property DIFF_TERM true                        [get_ports ddr3_sys_clk_n]
+
+create_clock -name fabric_coax_or_osc_p -period 25 [get_ports fabric_coax_or_osc_p]
+set_property PACKAGE_PIN AL18                      [get_ports fabric_coax_or_osc_p]
+set_property IOSTANDARD LVDS_25                    [get_ports fabric_coax_or_osc_p]
+set_property DIFF_TERM true                        [get_ports fabric_coax_or_osc_p]
+set_property PACKAGE_PIN AL19                      [get_ports fabric_coax_or_osc_n]
+set_property IOSTANDARD LVDS_25                    [get_ports fabric_coax_or_osc_n]
+set_property DIFF_TERM true                        [get_ports fabric_coax_or_osc_n]
+
+set_false_path -through                            [get_cells usr/ddr3/u_ddr3_controller/u_iodelay_ctrl/rst*]
+set_false_path -through                            [get_cells usr/ddr3/u_memory_interface_controller/rst*]
+set_false_path -through                            [get_cells usr/ddr3/u_ddr3_controller/u_ddr3_infrastructure/rst*]
+set_false_path -through                            [get_nets  usr/ddr3_sys_rst_n]
+
+set_false_path -from                               [get_clocks clk_pll_i]
+set_false_path -to                                 [get_clocks clk_pll_i]
+
+set_false_path -from                               [get_clocks fabric_clk_n] -to [get_clocks clkout0]
+set_false_path -from                               [get_clocks clkout0]      -to [get_clocks fabric_clk_n]

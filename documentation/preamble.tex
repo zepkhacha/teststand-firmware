@@ -1,0 +1,158 @@
+\documentclass[12pt,letterpaper,oneside]{book}
+\usepackage[english]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage{graphicx}
+
+\usepackage[margin=2.54cm,letterpaper]{geometry}
+\usepackage[explicit]{titlesec}
+\usepackage{titletoc}
+\usepackage{tikz}
+\usepackage{epigraph}
+\usepackage{xpatch}
+\usepackage{xspace}
+\usepackage{lmodern}
+
+\usepackage{array}
+\usepackage{color}
+\usepackage{parskip}
+\usepackage{multirow}
+\usepackage{amsmath}
+
+\usepackage{courier} % for the code parts
+\usepackage{hyperref} % for linking to URLs
+
+
+% ----------------------------------------------------------------
+
+% phrase styling
+\def\gm2{{$g$$-$2}}
+\newcommand{\uTCA}{$\mu$TCA\xspace}
+
+\def\labelitemi{--} % use dashes for list items
+
+
+\newlength\ChapWd
+\settowidth\ChapWd{\huge\chaptertitlename}
+
+% cornell red color
+\definecolor{cornellred}{RGB}{179,27,27}
+
+% uiuc blue color
+\definecolor{uiucblue}{RGB}{0,32,91}
+
+% uiuc orange color
+\definecolor{uiucorange}{RGB}{232,119,34}
+
+% gm2 blue color
+\definecolor{gm2blue}{RGB}{0,76,151}
+
+% gm2 yellow color
+\definecolor{gm2yellow}{RGB}{254,209,65}
+
+\titleclass{\part}{top} % make part like a chapter
+\titleformat{\part}[display]
+{\normalfont\filcenter\sffamily}
+  {\tikz[remember picture,overlay]{}
+  }{0pt}{\fontsize{33}{40}\selectfont\color{gm2blue}#1}[\vskip0pt\Large***]
+\titlespacing*{\part}
+  {0pt}{50pt}{10pt}
+
+
+\titleformat{\chapter}[display]
+  {\normalfont\filcenter\sffamily}
+  {\tikz[remember picture,overlay]
+    {
+%    \node[fill=white,font=\fontsize{60}{72}\selectfont\color{gm2blue},anchor=north east,minimum size=\ChapWd] 
+%      at ([xshift=-15pt,yshift=-15pt]current page.north east) 
+%      (numb) {\thechapter};
+%    \node[rotate=90,anchor=south,inner sep=0pt,font=\huge] at (numb.west) {};%\chaptertitlename};
+    }
+  }{0pt}{\fontsize{33}{40}\selectfont\color{gm2blue}#1}[\vskip0pt\Large***]
+\titlespacing*{\chapter}
+  {0pt}{50pt}{10pt}
+
+
+\makeatletter
+\xpatchcmd{\ttl@printlist}{\endgroup}{{\noindent\color{gm2blue}\rule{\textwidth}{1.5pt}}\vskip30pt\endgroup}{}{}
+\makeatother
+
+
+\newcommand\DoPToC{
+\startcontents[parts]
+\printcontents[parts]{}{0}{\noindent{\color{gm2blue}\rule{\textwidth}{1.5pt}}\par}
+}
+
+
+\setlength\epigraphrule{0pt}
+\renewcommand\textflush{flushright}
+\renewcommand\epigraphsize{\normalsize\itshape}
+
+
+% ----------------------------------------------------------------
+% for code format
+
+\usepackage{listings}
+\lstset{
+language=bash,                   % choose the language of the code
+basicstyle=\footnotesize\ttfamily,       % the size of the fonts that are used for the code
+							% the \ttfamily causes the output to be in the courier font
+numbers=left,                   % where to put the line-numbers
+numberstyle=\footnotesize,      % the size of the fonts that are used for the line-numbers
+stepnumber=1,                   % the step between two line-numbers. If it is 1 each line will be numbered
+numbersep=5pt,                  % how far the line-numbers are from the code
+backgroundcolor=\color{white},  % choose the background color. You must add \usepackage{color}
+showspaces=false,               % show spaces adding particular underscores
+showstringspaces=false,         % underline spaces within strings
+showtabs=false,                 % show tabs within strings adding particular underscores
+frame=single,                   % adds a frame around the code
+tabsize=2,                      % sets default tabsize to 2 spaces
+captionpos=b,                   % sets the caption-position to bottom
+breaklines=true,                % sets automatic line breaking
+breakatwhitespace=false,        % sets if automatic breaks should only happen at whitespace
+escapeinside={\%*}{*)},         % if you want to add a comment within your code
+literate={~} {$\sim$}{1},	% to make the tilde look right
+deletekeywords={and, or, for, explicit, this, using, if, do, not, while, cd, export, source, env}	% to get rid of the bolding of keywords in C++
+}
+
+
+% ----------------------------------------------------------------
+% for acronyms
+
+\usepackage[intoc]{nomencl}
+\makenomenclature
+\renewcommand{\nomname}{Acronyms}
+\setlength{\nomlabelwidth}{0.2\textwidth}
+
+
+% ----------------------------------------------------------------
+% for file tree structure
+
+\makeatletter
+\newcount\dirtree@lvl
+\newcount\dirtree@plvl
+\newcount\dirtree@clvl
+\def\dirtree@growth{%
+  \ifnum\tikznumberofcurrentchild=1\relax
+  \global\advance\dirtree@plvl by 1
+  \expandafter\xdef\csname dirtree@p@\the\dirtree@plvl\endcsname{\the\dirtree@lvl}
+  \fi
+  \global\advance\dirtree@lvl by 1\relax
+  \dirtree@clvl=\dirtree@lvl
+  \advance\dirtree@clvl by -\csname dirtree@p@\the\dirtree@plvl\endcsname
+  \pgf@xa=1cm\relax
+  \pgf@ya=-0.75cm\relax
+  \pgf@ya=\dirtree@clvl\pgf@ya
+  \pgftransformshift{\pgfqpoint{\the\pgf@xa}{\the\pgf@ya}}%
+  \ifnum\tikznumberofcurrentchild=\tikznumberofchildren
+  \global\advance\dirtree@plvl by -1
+  \fi
+}
+
+\tikzset{
+  dirtree/.style={
+    growth function=\dirtree@growth,
+    every node/.style={anchor=north},
+    every child node/.style={anchor=west},
+    edge from parent path={(\tikzparentnode\tikzparentanchor) |- (\tikzchildnode\tikzchildanchor)}
+  }
+}

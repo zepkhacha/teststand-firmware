@@ -1,0 +1,16 @@
+// TTC broadcast commands recognized by the downstream consumers
+
+// Be sure to use [ `include "ttc_commands.txt" ] whenever any of these constants are needed.
+// Also, be sure to use the backtic [ ` ] when the constant is actually used.
+
+// Only define these constants once.
+`ifndef TTC_COMMANDS_INCLUDED
+    `define TTC_COMMANDS_INCLUDED
+
+    `define BUNCH_COUNT_RESET   8'b00000_001    // reset bunch couter
+    `define EVENT_COUNT_RESET   8'b00000_010    // reset event counter
+    `define TIMESTAMP_RESET     8'b00101_000    // reset timestamp counter
+    `define START_ASYNC_STORAGE 8'b11000_000    // start accepting front panel triggers
+    `define STOP_ASYNC_STORAGE  8'b10000_000    // stop accepting front panel triggers
+
+`endif

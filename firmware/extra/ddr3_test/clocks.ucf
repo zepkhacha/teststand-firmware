@@ -1,0 +1,11 @@
+net fabric_clk_n 					loc = ak19 | iostandard = lvds_25 | diff_term = true;		#bank#1	#io_l12n_t1_mrcc_11
+net fabric_clk_p 					loc = ak18 | iostandard = lvds_25 | diff_term = true;		#bank#1	#io_l12p_t1_mrcc_11
+net fabric_clk_n 					tnm_net = "fabric_clk";
+timespec ts_fabric_clk = 		period "fabric_clk" 25 ns;
+
+net sysled1_r 						loc = aa24 | iostandard = lvcmos33;		#bank#14       #io_0_14						
+net sysled1_g 						loc = v27  | iostandard = lvcmos33;		#bank#14       #io_l9p_t1_dqs_14				
+net sysled1_b 						loc = aa31 | iostandard = lvcmos33;		#bank#14       #io_l18n_t2_a11_d27_14			
+net sysled2_r 						loc = aa29 | iostandard = lvcmos33;		#bank#14       #io_l13n_t2_mrcc_14	
+net sysled2_g 						loc = y28  | iostandard = lvcmos33;		#bank#14       #io_l14p_t2_srcc_14			
+net sysled2_b 						loc = y29  | iostandard = lvcmos33;		#bank#14       #io_l14n_t2_srcc_14

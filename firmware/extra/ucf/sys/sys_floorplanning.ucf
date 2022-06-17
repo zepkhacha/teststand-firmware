@@ -1,0 +1,6 @@
+##############################
+# pblock
+##############################
+inst       "sys/*"				area_group = "pblock_sys";
+area_group "pblock_sys" 		range=clockregion_x0y2:clockregion_x1y3;  
+

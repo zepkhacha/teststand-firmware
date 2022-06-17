@@ -1,0 +1,187 @@
+
+net led<0>						loc = r1		| iostandard = lvcmos33 | slew = slow;					# cpld_led0
+net led<1>						loc = n4		| iostandard = lvcmos33 | slew = slow;					# cpld_led1
+net led<2>						loc = n1		| iostandard = lvcmos33 | slew = slow;					# cpld_led1
+
+net reset_switch				loc = n2		| iostandard = lvcmos33;									# cpld_manual_rst
+net cpld_por					loc = m3		| iostandard = lvcmos33;									# cpld_pwr_up_rst_a
+
+net fpga_cpld_clk				loc = e2		| iostandard = lvcmos33 | slew = slow;					# fpga_cpld_clk
+net fpga_emc_clk				loc = c1		| iostandard = lvcmos33 | slew = slow;					# fpga_emc_clk
+net cpld_clk_100mhz			loc = m2		| iostandard = lvcmos33 | tnm_net = "cpld100_clk";	# cpld_pwr_up_rst_b
+timespec ts_cpld100_clk = period "cpld100_clk" 8 ns ;
+
+
+##############################
+# jtag
+##############################
+
+# amc jtag source
+net tcka							loc = n9		| iostandard = lvcmos33;									# amc_jtag_tck
+net tdia							loc = m8		| iostandard = lvcmos33;									# amc_jtag_tdi
+net tmsa							loc = t8		| iostandard = lvcmos33;									# amc_jtag_tms
+net tdoa							loc = p8		| iostandard = lvcmos33 | slew = slow;					# amc_jtag_tdo
+
+# local jtag header source
+net tckb 						loc = t7		| iostandard = lvcmos33;									# hdr_jtag_tck
+net tdib							loc = t6		| iostandard = lvcmos33;									# hdr_jtag_tdi
+net tmsb							loc = r8		| iostandard = lvcmos33;									# hdr_jtag_tms
+net tdob							loc = n8		| iostandard = lvcmos33 | slew = slow;					# hdr_jtag_tdo
+
+# fpga jtag
+net tcko<0>						loc = e16	| iostandard = lvcmos33 | slew = slow;					# fpga_jtag_tck
+net tdio<0>						loc = f15	| iostandard = lvcmos33 | slew = slow;					# fpga_jtag_tdi
+net tmso<0>						loc = g14	| iostandard = lvcmos33 | slew = slow;					# fpga_jtag_tms
+net tdoo<0>						loc = h12	| iostandard = lvcmos33;									# fpga_jtag_tdo
+
+# atmel jtag
+net tcko<1>						loc = t10	| iostandard = lvcmos33 | slew = slow;					# uc_jtag_tck
+net tdio<1>						loc = p10	| iostandard = lvcmos33 | slew = slow;					# uc_jtag_tdi
+net tmso<1>						loc = r10	| iostandard = lvcmos33 | slew = slow;					# uc_jtag_tms
+net tdoo<1>						loc = r9		| iostandard = lvcmos33;									# uc_jtag_tdo
+
+# fmc l8 jtag
+net tcko<2>						loc = h15	| iostandard = lvcmos33 | slew = slow;					# fmc_l8_jtag_tck
+net tdio<2>						loc = g16	| iostandard = lvcmos33 | slew = slow;					# fmc_l8_jtag_tdi
+net tmso<2>						loc = h14	| iostandard = lvcmos33 | slew = slow;					# fmc_l8_jtag_tms
+net tdoo<2>						loc = j12	| iostandard = lvcmos33;									# fmc_l8_jtag_tdo
+
+net fmc_l8_prsnt_l			loc = n5		| iostandard = lvcmos33;									# fmc_l8_prsnt
+
+# fmc l12 jtag
+net tcko<3>						loc = g15	| iostandard = lvcmos33 | slew = slow;					# fmc_l12_jtag_tck
+net tdio<3>						loc = f16	| iostandard = lvcmos33 | slew = slow;					# fmc_l12_jtag_tdi
+net tmso<3>						loc = h16	| iostandard = lvcmos33 | slew = slow;					# fmc_l12_jtag_tms
+net tdoo<3>						loc = h13	| iostandard = lvcmos33;									# fmc_l12_jtag_tdo
+
+net fmc_l12_prsnt_l			loc = t1		| iostandard = lvcmos33;									# fmc_l12_prsnt
+
+
+##############################
+# fpga configuration
+##############################
+
+# cpld config switches
+net sel<0>						loc = a2		| iostandard = lvcmos33 | pullup;						# cpld_sw0
+net sel<1>						loc = a3		| iostandard = lvcmos33 | pullup;						# cpld_sw1
+net sel<2>						loc = a4		| iostandard = lvcmos33 | pullup;						# cpld_sw2
+net sel<3>						loc = b5		| iostandard = lvcmos33 | pullup;						# cpld_sw3
+net sel<4>						loc = a5		| iostandard = lvcmos33 | pullup;						# cpld_sw4
+net sel<5>						loc = e8		| iostandard = lvcmos33 | pullup;						# cpld_sw5
+net sel<6>						loc = b6		| iostandard = lvcmos33 | pullup;						# cpld_sw6
+net sel<7>						loc = c7		| iostandard = lvcmos33 | pullup;						# cpld_sw7
+
+# fpga configuration
+net fpga_init_b 				loc = b1		| iostandard = lvcmos33 | slew = slow;					# fpga_init_b
+net fpga_prog_b 				loc = e5		| iostandard = lvcmos33 | slew = slow;					# fpga_prog_b
+net fpga_done 					loc = e4		| iostandard = lvcmos33 | slew = slow;					# fpga_done
+
+net fpga_mode<0> 				loc = b4		| iostandard = lvcmos33 | slew = slow;					# fpga_mode_0
+net fpga_mode<1> 				loc = c4		| iostandard = lvcmos33 | slew = slow;					# fpga_mode_1
+net fpga_mode<2> 				loc = b3		| iostandard = lvcmos33 | slew = slow;					# fpga_mode_2
+
+# fpga master spi / slave selectmap interfaces
+net fpga_cclk					loc = e3		| iostandard = lvcmos33 | slew = slow;					# fpga_cclk
+net fpga_csi_b					loc = d2		| iostandard = lvcmos33 | slew = slow;					# fpga_csi_b
+net fpga_rdwr_b				loc = d4		| iostandard = lvcmos33 | slew = slow;					# fpga_rdwr_b
+net fpga_fcs_b					loc = b2		| iostandard = lvcmos33 | slew = slow;					# fpga_fcs_b
+
+# spi prom interface (only spix1 implemented)
+net spi_sclk 					loc = j5		| iostandard = lvcmos33 | slew = slow;					# spi_sclk
+net spi_cs_b 					loc = j1		| iostandard = lvcmos33 | slew = slow;					# spi_cs_b
+net spi_dq<0>					loc = j4		| iostandard = lvcmos33 | slew = slow;					# spi_dq0
+net spi_dq<1>					loc = k1		| iostandard = lvcmos33 | slew = slow;					# spi_dq1
+net spi_dq<2>					loc = j3		| iostandard = lvcmos33 | slew = slow;					# spi_dq2
+net spi_dq<3>					loc = j2		| iostandard = lvcmos33 | slew = slow;					# spi_dq3
+
+# cpld <-> fpga data bus
+net cpld2fpga_d<0>			loc = e13	| iostandard = lvcmos33 | slew = slow | pullup;		# cpld2fpga_config_data00
+net cpld2fpga_d<1>			loc = a13	| iostandard = lvcmos33 | slew = slow | pullup;		# cpld2fpga_config_data01
+net cpld2fpga_d<2>			loc = d13	| iostandard = lvcmos33 | slew = slow | pullup;		# cpld2fpga_config_data02
+net cpld2fpga_d<3>			loc = b12	| iostandard = lvcmos33 | slew = slow | pullup;		# cpld2fpga_config_data03
+net cpld2fpga_d<4>			loc = c12	| iostandard = lvcmos33 | slew = slow | pullup;		# cpld2fpga_config_data04
+net cpld2fpga_d<5>			loc = a15	| iostandard = lvcmos33 | slew = slow | pullup;		# cpld2fpga_config_data05
+net cpld2fpga_d<6>			loc = c11	| iostandard = lvcmos33 | slew = slow | pullup;		# cpld2fpga_config_data06
+net cpld2fpga_d<7>			loc = a12	| iostandard = lvcmos33 | slew = slow | pullup;		# cpld2fpga_config_data07
+net cpld2fpga_d<8>			loc = b11	| iostandard = lvcmos33 | slew = slow | pullup;		# cpld2fpga_config_data08
+net cpld2fpga_d<9>			loc = d11	| iostandard = lvcmos33 | slew = slow | pullup;		# cpld2fpga_config_data09
+net cpld2fpga_d<10>			loc = a11	| iostandard = lvcmos33 | slew = slow | pullup;		# cpld2fpga_config_data10
+net cpld2fpga_d<11>			loc = d10	| iostandard = lvcmos33 | slew = slow | pullup;		# cpld2fpga_config_data11
+net cpld2fpga_d<12>			loc = b10	| iostandard = lvcmos33 | slew = slow | pullup;		# cpld2fpga_config_data12
+net cpld2fpga_d<13>			loc = e12	| iostandard = lvcmos33 | slew = slow | pullup;		# cpld2fpga_config_data13
+net cpld2fpga_d<14>			loc = f12	| iostandard = lvcmos33 | slew = slow | pullup;		# cpld2fpga_config_data14
+net cpld2fpga_d<15>			loc = b9		| iostandard = lvcmos33 | slew = slow | pullup;		# cpld2fpga_config_data15
+
+
+##############################
+# atmel<->fpga communication
+##############################
+
+# cpld <-> fpga ipbus over spi
+net cpld2fpga_gpio<0>		loc = g11	| iostandard = lvcmos33 | slew = slow | pullup;		# cpld2fpga_gpio0
+net cpld2fpga_gpio<1>		loc = c14	| iostandard = lvcmos33 | slew = slow | pullup;		# cpld2fpga_gpio1
+net cpld2fpga_gpio<2>		loc = b15	| iostandard = lvcmos33 | slew = slow | pullup;		# cpld2fpga_gpio2
+net cpld2fpga_gpio<3>		loc = a16	| iostandard = lvcmos33 | slew = slow | pullup;		# cpld2fpga_gpio3
+
+# cpld -> fpga dma control
+net cpld2fpga_ebi_nwe_0		loc = g3		| iostandard = lvcmos33 | slew = slow;					# cpld2fpga_ebi_nwe_0
+net cpld2fpga_ebi_nrd		loc = f5		| iostandard = lvcmos33 | slew = slow;					# cpld2fpga_ebi_nrd
+
+# reserved
+net cpld2fpga_ebi_nwe_1		loc = g5		| iostandard = lvcmos33 | slew = slow;					# cpld2fpga_ebi_nwe_1
+net cpld2fpga_ebi_ncs_1		loc = g4		| iostandard = lvcmos33 | slew = slow;					# cpld2fpga_ebi_ncs_1
+
+# cpld <-> atmel ebi address bus (only ports [4,7] used)
+net atmel_ebi_a<0>			loc = m12	| iostandard = lvcmos33 | slew = slow | pullup;		# uc_ebi_a0
+net atmel_ebi_a<1>			loc = l13	| iostandard = lvcmos33 | slew = slow | pullup;		# uc_ebi_a1
+net atmel_ebi_a<2>			loc = l15	| iostandard = lvcmos33 | slew = slow | pullup;		# uc_ebi_a2
+net atmel_ebi_a<3>			loc = n10	| iostandard = lvcmos33 | slew = slow | pullup;		# uc_ebi_a3
+net atmel_ebi_a<4>			loc = m11	| iostandard = lvcmos33 | slew = slow | pullup;		# uc_ebi_a4
+net atmel_ebi_a<5>			loc = n11	| iostandard = lvcmos33 | slew = slow | pullup;		# uc_ebi_a5
+net atmel_ebi_a<6>			loc = r12	| iostandard = lvcmos33 | slew = slow | pullup;		# uc_ebi_a6
+net atmel_ebi_a<7>			loc = t15	| iostandard = lvcmos33 | slew = slow | pullup;		# uc_ebi_a7
+net atmel_ebi_a<8>			loc = r14	| iostandard = lvcmos33 | slew = slow | pullup;		# uc_ebi_a8
+net atmel_ebi_a<9>			loc = n13	| iostandard = lvcmos33 | slew = slow | pullup;		# uc_ebi_a9
+net atmel_ebi_a<10>			loc = r13	| iostandard = lvcmos33 | slew = slow | pullup;		# uc_ebi_a10
+net atmel_ebi_a<11>			loc = p13	| iostandard = lvcmos33 | slew = slow | pullup;		# uc_ebi_a11
+net atmel_ebi_a<12>			loc = p14	| iostandard = lvcmos33 | slew = slow | pullup;		# uc_ebi_a12
+net atmel_ebi_a<13>			loc = p15	| iostandard = lvcmos33 | slew = slow | pullup;		# uc_ebi_a13
+net atmel_ebi_a<14>			loc = m14	| iostandard = lvcmos33 | slew = slow | pullup;		# uc_ebi_a14
+net atmel_ebi_a<15>			loc = l14	| iostandard = lvcmos33 | slew = slow | pullup;		# uc_ebi_a15
+net atmel_ebi_a<16>			loc = n16	| iostandard = lvcmos33 | slew = slow | pullup;		# uc_ebi_a16
+net atmel_ebi_a<17>			loc = p16	| iostandard = lvcmos33 | slew = slow | pullup;		# uc_ebi_a17
+net atmel_ebi_a<18>			loc = m13	| iostandard = lvcmos33 | slew = slow | pullup;		# uc_ebi_a18
+net atmel_ebi_a<19>			loc = m15	| iostandard = lvcmos33 | slew = slow | pullup;		# uc_ebi_a19
+
+# cpld <-> atmel ebi data bus
+net atmel_ebi_d<0>			loc = r15	| iostandard = lvcmos33 | slew = slow | pullup;		# uc_ebi_d0
+net atmel_ebi_d<1>			loc = m7		| iostandard = lvcmos33 | slew = slow | pullup;		# uc_ebi_d1
+net atmel_ebi_d<2>			loc = r7		| iostandard = lvcmos33 | slew = slow | pullup;		# uc_ebi_d2
+net atmel_ebi_d<3>			loc = n7		| iostandard = lvcmos33 | slew = slow | pullup;		# uc_ebi_d3
+net atmel_ebi_d<4>			loc = t5		| iostandard = lvcmos33 | slew = slow | pullup;		# uc_ebi_d4
+net atmel_ebi_d<5>			loc = p7		| iostandard = lvcmos33 | slew = slow | pullup;		# uc_ebi_d5
+net atmel_ebi_d<6>			loc = t4		| iostandard = lvcmos33 | slew = slow | pullup;		# uc_ebi_d6
+net atmel_ebi_d<7>			loc = p6		| iostandard = lvcmos33 | slew = slow | pullup;		# uc_ebi_d7
+net atmel_ebi_d<8>			loc = t3		| iostandard = lvcmos33 | slew = slow | pullup;		# uc_ebi_d8
+net atmel_ebi_d<9>			loc = m6		| iostandard = lvcmos33 | slew = slow | pullup;		# uc_ebi_d9
+net atmel_ebi_d<10>			loc = r3		| iostandard = lvcmos33 | slew = slow | pullup;		# uc_ebi_d10
+net atmel_ebi_d<11>			loc = l12	| iostandard = lvcmos33 | slew = slow | pullup;		# uc_ebi_d11
+net atmel_ebi_d<12>			loc = k15	| iostandard = lvcmos33 | slew = slow | pullup;		# uc_ebi_d12
+net atmel_ebi_d<13>			loc = l16	| iostandard = lvcmos33 | slew = slow | pullup;		# uc_ebi_d13
+net atmel_ebi_d<14>			loc = k14	| iostandard = lvcmos33 | slew = slow | pullup;		# uc_ebi_d14
+net atmel_ebi_d<15>			loc = m16	| iostandard = lvcmos33 | slew = slow | pullup;		# uc_ebi_d15
+
+# atmel -> cpld ebi control bus
+net atmel_ebi_ncs_1			loc = n15	| iostandard = lvcmos33 | slew = slow | pullup;		# uc_ebi_ncs_1
+net atmel_ebi_nrd				loc = r16	| iostandard = lvcmos33 | slew = slow | pullup;		# uc_ebi_nrd
+net atmel_ebi_nwe_0			loc = n14	| iostandard = lvcmos33 | slew = slow | pullup;		# uc_ebi_nwe_0
+net atmel_ebi_nwe_1			loc = t16	| iostandard = lvcmos33 | slew = slow | pullup;		# uc_ebi_nwe_1
+
+# atmel board control
+net atmel_uc<0>				loc = k4		| iostandard = lvcmos33 | slew = slow | pullup;		# uc_gpio0
+net atmel_uc<1>				loc = l2		| iostandard = lvcmos33 | slew = slow;					# uc_gpio1
+net atmel_uc<2>				loc = k3		| iostandard = lvcmos33 | slew = slow;					# uc_gpio2
+
+# reserved
+net atmel_uc<3>				loc = l1		| iostandard = lvcmos33 | slew = slow;					# uc_gpio3net atmel_uc<4>				loc = p5		| iostandard = lvcmos33 | slew = slow;					# uc_fpgaclk
+

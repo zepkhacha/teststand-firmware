@@ -1,0 +1,57 @@
+\begin{thenomenclature} 
+
+ \nomgroup{A}
+
+  \item [{AMC}]\begingroup Advanced Mezzanine Card\nomeqref {0}
+		\nompageref{2}
+  \item [{BME}]\begingroup Biphase Mark Encoding\nomeqref {0}
+		\nompageref{2}
+  \item [{CCC}]\begingroup Clock and Controls Center\nomeqref {0}
+		\nompageref{2}
+  \item [{DAQ}]\begingroup Data Acquisition\nomeqref {0}\nompageref{2}
+  \item [{EEPROM}]\begingroup Electrically Erasable Programmable Read-Only Memory\nomeqref {0}
+		\nompageref{2}
+  \item [{FMC}]\begingroup FPGA Mezzanine Card\nomeqref {0}
+		\nompageref{2}
+  \item [{FPGA}]\begingroup Field-Programmable Gate Array\nomeqref {0}
+		\nompageref{2}
+  \item [{GbE}]\begingroup Gigabit Ethernet\nomeqref {0}\nompageref{2}
+  \item [{IP}]\begingroup Internet Protocol\nomeqref {0}\nompageref{2}
+  \item [{IPMI}]\begingroup Intelligent Platform Management Interface\nomeqref {0}
+		\nompageref{2}
+  \item [{JTAG}]\begingroup Joint Test Action Group\nomeqref {0}
+		\nompageref{2}
+  \item [{LED}]\begingroup Light-Emitting Diode\nomeqref {0}
+		\nompageref{2}
+  \item [{LSB}]\begingroup Least Significant Bit\nomeqref {0}
+		\nompageref{2}
+  \item [{LVCMOS}]\begingroup Low-Voltage Complementary Metal Oxide Semiconductor\nomeqref {0}
+		\nompageref{2}
+  \item [{LVDS}]\begingroup Low-Voltage Differential Signaling\nomeqref {0}
+		\nompageref{2}
+  \item [{MAC}]\begingroup Media Access Control\nomeqref {0}
+		\nompageref{2}
+  \item [{MCH}]\begingroup $\mu$TCA Carrier Hub\nomeqref {0}
+		\nompageref{2}
+  \item [{MIDAS}]\begingroup Maximum Integrated Data Acquisition System\nomeqref {0}
+		\nompageref{2}
+  \item [{MMC}]\begingroup $\mu$TCA Management Controller\nomeqref {0}
+		\nompageref{2}
+  \item [{MSB}]\begingroup Most Significant Bit\nomeqref {0}
+		\nompageref{2}
+  \item [{PLL}]\begingroup Phase-Locked Loop\nomeqref {0}\nompageref{2}
+  \item [{PM}]\begingroup Power Module\nomeqref {0}\nompageref{2}
+  \item [{SPI}]\begingroup Serial Peripheral Interface\nomeqref {0}
+		\nompageref{2}
+  \item [{TCA}]\begingroup Telecommunications Computing Architecture\nomeqref {0}
+		\nompageref{2}
+  \item [{TCP}]\begingroup Transmission Control Protocol\nomeqref {0}
+		\nompageref{2}
+  \item [{TTC}]\begingroup Timing, Trigger, and Control\nomeqref {0}
+		\nompageref{2}
+  \item [{TTS}]\begingroup Trigger Throttling System\nomeqref {0}
+		\nompageref{2}
+  \item [{WFD}]\begingroup Waveform Digitizer\nomeqref {0}
+		\nompageref{2}
+
+\end{thenomenclature}

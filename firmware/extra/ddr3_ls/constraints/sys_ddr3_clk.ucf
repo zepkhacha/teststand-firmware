@@ -1,0 +1,8 @@
+net "*u_ddr3_controller/u_iodelay_ctrl/rst*" tig;
+
+net ddr3_sys_clk_p 				loc = h27	| iostandard =diff_sstl15;	#io_l13p_t2_mrcc_17				bank#17
+net ddr3_sys_clk_n 				loc = g27	| iostandard =diff_sstl15;	#io_l13n_t2_mrcc_17				bank#17
+
+net ddr3_sys_clk_p 				tnm_net = "ddr3_sys_clk_p";
+timespec ts_ddr3_sys_clk_p = 	period "ddr3_sys_clk_p" 4.158 ns;
+

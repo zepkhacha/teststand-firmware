@@ -1,0 +1,24 @@
+This directory contains software tools for accessing the Flash of the FC7.
+
+The FC7 used IPbus for Ethernet communication:
+   svnweb.cern.ch/trac/cactus/wiki
+
+To build all the code:
+   1. source setenv.sh
+   2. run "make" in the base directory
+
+The result of the "make" command should be:
+   1. "obj" directory containing object (.o) and dependency (.d) files for each C++ file
+   2. "lib" directory containing the shared library (.so) file for the FlashTool class
+   3. "bin" directory containing executables
+
+The current executables are only for updating the firmware stored in the Flash. The encoder/
+fanout bitstream is stored at address 0x00000000 in the Flash. These addresses are hardcoded
+in the firmware and in the C++ code.
+
+Usage:
+
+    programFirmware [crate numbers] [slot numbers] [mcs file]
+    eraseFirmware   [crate numbers] [slot numbers]
+
+Contact with CCC developers with any questions.

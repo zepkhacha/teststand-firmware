@@ -1,0 +1,40 @@
+##############################
+# fmc l8 tx
+##############################
+#net  fmc_l8_dp_c2m_p<7>			loc = an7	;
+#net  fmc_l8_dp_c2m_p<6>			loc = ap9	;
+#net  fmc_l8_dp_c2m_p<5>			loc = an11	;
+#net  fmc_l8_dp_c2m_p<4>			loc = al7	;
+#net  fmc_l8_dp_c2m_p<3>			loc = ap5	;
+#net  fmc_l8_dp_c2m_p<2>			loc = an3	;
+#net  fmc_l8_dp_c2m_p<1>			loc = ap1	;
+#net  fmc_l8_dp_c2m_p<0>			loc = am1	;
+#
+#net  fmc_l8_dp_c2m_n<7>			loc = an8	;
+#net  fmc_l8_dp_c2m_n<6>			loc = ap10	;
+#net  fmc_l8_dp_c2m_n<5>			loc = an12	;
+#net  fmc_l8_dp_c2m_n<4>			loc = al8	;
+#net  fmc_l8_dp_c2m_n<3>			loc = ap6	;
+#net  fmc_l8_dp_c2m_n<2>			loc = an4	;
+#net  fmc_l8_dp_c2m_n<1>			loc = ap2	;
+#net  fmc_l8_dp_c2m_n<0>			loc = am2	;
+##############################
+# fmc l8 rx
+##############################
+#net  fmc_l8_dp_m2c_p<7>			loc = aj11	;
+#net  fmc_l8_dp_m2c_p<6>			loc = al11	;
+#net  fmc_l8_dp_m2c_p<5>			loc = am9	;
+#net  fmc_l8_dp_m2c_p<4>			loc = ak9	;
+#net  fmc_l8_dp_m2c_p<3>			loc = am5	;
+#net  fmc_l8_dp_m2c_p<2>			loc = al3	;
+#net  fmc_l8_dp_m2c_p<1>			loc = ak5	;
+#net  fmc_l8_dp_m2c_p<0>			loc = aj3	;
+#
+#net  fmc_l8_dp_m2c_n<7>			loc = aj12	;
+#net  fmc_l8_dp_m2c_n<6>			loc = al12	;
+#net  fmc_l8_dp_m2c_n<5>			loc = am10	;
+#net  fmc_l8_dp_m2c_n<4>			loc = ak10	;
+#net  fmc_l8_dp_m2c_n<3>			loc = am6	;
+#net  fmc_l8_dp_m2c_n<2>			loc = al4	;
+#net  fmc_l8_dp_m2c_n<1>			loc = ak6	;
+#net  fmc_l8_dp_m2c_n<0>			loc = aj4	;

@@ -1,0 +1,49 @@
+##############################################################
+#
+# Xilinx Core Generator version 14.5
+# Date: Fri Dec 12 17:21:23 2014
+#
+##############################################################
+#
+#  This file contains the customisation parameters for a
+#  Xilinx CORE Generator IP GUI. It is strongly recommended
+#  that you do not manually alter this file as it may cause
+#  unexpected and unsupported behavior.
+#
+##############################################################
+#
+#  Generated from component: xilinx.com:ip:mig_7series:1.9
+#
+##############################################################
+#
+# BEGIN Project Options
+SET addpads = false
+SET asysymbol = true
+SET busformat = BusFormatAngleBracketNotRipped
+SET createndf = false
+SET designentry = VHDL
+SET device = xc7k420t
+SET devicefamily = kintex7
+SET flowvendor = Other
+SET formalverification = false
+SET foundationsym = false
+SET implementationfiletype = Ngc
+SET package = ffg1156
+SET removerpms = false
+SET simulationfiles = Behavioral
+SET speedgrade = -2
+SET verilogsim = false
+SET vhdlsim = true
+# END Project Options
+# BEGIN Select
+SELECT MIG_7_Series family Xilinx,_Inc. 1.9
+# END Select
+# BEGIN Parameters
+CSET component_name=ddr3_controller
+CSET xml_input_file=./ddr3_controller/mig.prj
+# END Parameters
+# BEGIN Extra information
+MISC pkg_timestamp=2013-03-27T03:45:13Z
+# END Extra information
+GENERATE
+# CRC: f8512beb

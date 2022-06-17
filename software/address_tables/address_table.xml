@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- Last modified: 18-Jan-2019  lkg -->
+
+<node id="TOP">
+    <!-- flash -->
+    <node id="FLASH" address="0x00000000">
+        <node id="WBUF"   address="0x000" mode="incremental" size="0x80" permission="w" />
+        <node id="WBUF+1" address="0x001" mode="incremental" size="0x7F" permission="w" />
+        <node id="RBUF"   address="0x080" mode="incremental" size="0x80" permission="r" />
+        <node id="CMD"    address="0x100"                                permission="w" />
+    </node>
+    <!-- status -->
+    <node id="STATUS"        address="0x40000000" mode="incremental" size="209" permission="r" />
+    <node id="VERSION"       address="0x40000000" mask="0x00FFFFFF"             permission="r" />
+    <node id="BOARD_TYPE"   address="0x40000000" mask="0xC0000000"             permission="r" />
+    <node id="FMC_READY"    address="0x40000002" mask="0x00000020"             permission="r" />
+    <node id="FMC_ID_VALID" address="0x40000002" mask="0x00000100"             permission="r" />
+    <node id="L12_EN_PORTS" address="0x4000001C" mask="0x000000FF"             permission="r" />
+    <node id="L08_EN_PORTS" address="0x4000001C" mask="0x0000FF00"             permission="r" />
+    <node id="SYS_STATUS"   address="0x40000026" mask="0x0000003F"             permission="r" />
+    <node id="LOC_STATUS"   address="0x40000026" mask="0x000003C0"             permission="r" />
+    <node id="RUN_STATE"       address="0x4000002E" mask="0x00000001"             permission="r" />
+    <node id="RUN_STARTING"    address="0x4000002E" mask="0x0000000E"             permission="r" />
+    <node id="RUN_ABORTED"     address="0x4000002E" mask="0x00000010"             permission="r" />
+    <node id="TRIG_NUM"     address="0x4000002F" mask="0x00FFFFFF"             permission="r" />
+    <node id="L12_TTS_STATES"  address="0x40000024" mask="0xFFFFFFFF"             permission="r" />
+    <node id="L08_TTS_STATES"  address="0x40000025" mask="0xFFFFFFFF"             permission="r" />
+    <node id="L12_TTS_PSTATES" address="0x4000003A" mask="0xFFFFFFFF"             permission="r" />
+    <node id="L08_TTS_PSTATES" address="0x4000003B" mask="0xFFFFFFFF"             permission="r" />
+    <node id="L12_TTS_TIME_1L" address="0x400000A0" mask="0xFFFFFFFF"             permission="r" />
+    <node id="L12_TTS_TIME_1M" address="0x400000A1" mask="0xFFFFFFFF"             permission="r" />
+    <node id="L12_TTS_TIME_2L" address="0x400000A2" mask="0xFFFFFFFF"             permission="r" />
+    <node id="L12_TTS_TIME_2M" address="0x400000A3" mask="0xFFFFFFFF"             permission="r" />
+    <node id="L12_TTS_TIME_3L" address="0x400000A4" mask="0xFFFFFFFF"             permission="r" />
+    <node id="L12_TTS_TIME_3M" address="0x400000A5" mask="0xFFFFFFFF"             permission="r" />
+    <node id="L12_TTS_TIME_4L" address="0x400000A6" mask="0xFFFFFFFF"             permission="r" />
+    <node id="L12_TTS_TIME_4M" address="0x400000A7" mask="0xFFFFFFFF"             permission="r" />
+    <node id="L12_TTS_TIME_5L" address="0x400000A8" mask="0xFFFFFFFF"             permission="r" />
+    <node id="L12_TTS_TIME_5M" address="0x400000A9" mask="0xFFFFFFFF"             permission="r" />
+    <node id="L12_TTS_TIME_6L" address="0x400000AA" mask="0xFFFFFFFF"             permission="r" />
+    <node id="L12_TTS_TIME_6M" address="0x400000AB" mask="0xFFFFFFFF"             permission="r" />
+    <node id="L12_TTS_TIME_7L" address="0x400000AC" mask="0xFFFFFFFF"             permission="r" />
+    <node id="L12_TTS_TIME_7M" address="0x400000AD" mask="0xFFFFFFFF"             permission="r" />
+    <node id="L12_TTS_TIME_8L" address="0x400000AE" mask="0xFFFFFFFF"             permission="r" />
+    <node id="L12_TTS_TIME_8M" address="0x400000AF" mask="0xFFFFFFFF"             permission="r" />
+    <node id="L08_TTS_TIME_1L" address="0x400000B0" mask="0xFFFFFFFF"             permission="r" />
+    <node id="L08_TTS_TIME_1M" address="0x400000B1" mask="0xFFFFFFFF"             permission="r" />
+    <node id="L08_TTS_TIME_2L" address="0x400000B2" mask="0xFFFFFFFF"             permission="r" />
+    <node id="L08_TTS_TIME_2M" address="0x400000B3" mask="0xFFFFFFFF"             permission="r" />
+    <node id="L08_TTS_TIME_3L" address="0x400000B4" mask="0xFFFFFFFF"             permission="r" />
+    <node id="L08_TTS_TIME_3M" address="0x400000B5" mask="0xFFFFFFFF"             permission="r" />
+    <node id="L08_TTS_TIME_4L" address="0x400000B6" mask="0xFFFFFFFF"             permission="r" />
+    <node id="L08_TTS_TIME_4M" address="0x400000B7" mask="0xFFFFFFFF"             permission="r" />
+    <node id="L08_TTS_TIME_5L" address="0x400000B8" mask="0xFFFFFFFF"             permission="r" />
+    <node id="L08_TTS_TIME_5M" address="0x400000B9" mask="0xFFFFFFFF"             permission="r" />
+    <node id="L08_TTS_TIME_6L" address="0x400000BA" mask="0xFFFFFFFF"             permission="r" />
+    <node id="L08_TTS_TIME_6M" address="0x400000BB" mask="0xFFFFFFFF"             permission="r" />
+    <node id="L08_TTS_TIME_7L" address="0x400000BC" mask="0xFFFFFFFF"             permission="r" />
+    <node id="L08_TTS_TIME_7M" address="0x400000BD" mask="0xFFFFFFFF"             permission="r" />
+    <node id="L08_TTS_TIME_8L" address="0x400000BE" mask="0xFFFFFFFF"             permission="r" />
+    <node id="L08_TTS_TIME_8M" address="0x400000BF" mask="0xFFFFFFFF"             permission="r" />
+    <node id="A6_MISSING"      address="0x400000C0" mask="0x00000004"             permission="r" />
+    <node id="INTERNAL_TRIG"   address="0x400000C0" mask="0x00000008"             permission="r" />
+    <node id="SUPERCYCLE_GAP"  address="0x400000C0" mask="0x00000080"             permission="r" />
+    <node id="T9A6_APPLIED"    address="0x400000C0" mask="0x00000100"             permission="r" />
+    <node id="ABORTED_CYCLES"  address="0x400000C3" mask="0xFFFFFFFF"             permission="r" />
+    <node id="T9A6_CORR"       address="0x400000C4" mask="0xFFFFFFFF"             permission="r" />
+    <node id="RUN_OVERFLOW"    address="0x40000035" mask="0x01000000"             permission="r" />
+    <!-- control -->
+    <node id="SYSTEM" address="0x40001000">
+        <node id="HARD_RESET"  mask="0x00000001" />
+        <node id="SOFT_RESET"  mask="0x00000002" />
+        <node id="RUN_ENABLE"  mask="0x00000004" />
+        <node id="RUN_PAUSE"   mask="0x00000008" />
+        <node id="RUN_ABORT"   mask="0x00000010" />
+        <node id="FPGA_REPROG" mask="0x00000020" />
+    </node>
+    <node id="SEND_OFW_BOC"   address="0x40001001" mask="0x00000001" />
+    <node id="TTS_MASK_L08"   address="0x40001002" mask="0x000000FF" />
+    <node id="TTS_MASK_L12"   address="0x40001002" mask="0x0000FF00" />
+    <node id="TTC_TRIG_WIDTH" address="0x40001003" mask="0x000000FF" />
+    <node id="SEQ_COUNT"      address="0x40001003" mask="0x00000F00" />
+    <node id="OFW_THRES"      address="0x40001004" mask="0x00FFFFFF" />
+    <node id="CYCLE_THRES"    address="0x40001005" />
+    <node id="TTS_LOCK_THRES" address="0x40001006" />
+    <node id="TTS_RX"         address="0x40001007">
+        <node id="TAP_MANUAL" mask="0x00000001" />
+        <node id="TAP_STROBE" mask="0x00000002" />
+        <node id="TAP_DELAY"  mask="0x0000007C" />
+        <node id="REALIGN"    mask="0x00000080" />
+        <node id="RESET_L12"  mask="0x00000100" />
+        <node id="RESET_L08"  mask="0x00000200" />
+    </node>
+    <node id="I2C" address="0x40001008">
+        <node id="CHANNEL"    mask="0x000000FF" />
+        <node id="EEPROM_MAP" mask="0x00000100" />
+        <node id="EEPROM_ADR" mask="0x0001FE00" />
+        <node id="EEPROM_NUM" mask="0x007E0000" />
+        <node id="READ_L12"   mask="0x00800000" />
+        <node id="READ_L08"   mask="0x01000000" />
+        <node id="RESET_L12"  mask="0x02000000" />
+        <node id="RESET_L08"  mask="0x04000000" />
+    </node>
+    <node id="SFP" address="0x40001009">
+        <node id="REQUEST_L12" mask="0x000000FF" />
+        <node id="REQUEST_L08" mask="0x0000FF00" />
+        <node id="ENABLE_L12"  mask="0x00010000" />
+        <node id="ENABLE_L08"  mask="0x00020000" />
+    </node>
+    <node id="CYCLE_SIZE_TOGGLE" address="0x40001009" mask="0x00100000" />
+    <node id="LASER_PRESCALE"    address="0x40001009" mask="0x1FE00000" />
+    <node id="FMC_ID" address="0x4000100A">
+        <node id="REQUEST_L12" mask="0x000000FF" />
+        <node id="REQUEST_L08" mask="0x0000FF00" />
+        <node id="WRITE"       mask="0x00010000" />
+    </node>
+    <node id="TTC" address="0x40001000">
+        <node id="DELAY0_L12" address="0xB" mask="0x000000FF" />
+        <node id="DELAY1_L12" address="0xB" mask="0x0000FF00" />
+        <node id="DELAY2_L12" address="0xB" mask="0x00FF0000" />
+        <node id="DELAY3_L12" address="0xB" mask="0xFF000000" />
+        <node id="DELAY4_L12" address="0xC" mask="0x000000FF" />
+        <node id="DELAY5_L12" address="0xC" mask="0x0000FF00" />
+        <node id="DELAY6_L12" address="0xC" mask="0x00FF0000" />
+        <node id="DELAY7_L12" address="0xC" mask="0xFF000000" />
+        <node id="DELAY0_L08" address="0xD" mask="0x000000FF" />
+        <node id="DELAY1_L08" address="0xD" mask="0x0000FF00" />
+        <node id="DELAY2_L08" address="0xD" mask="0x00FF0000" />
+        <node id="DELAY3_L08" address="0xD" mask="0xFF000000" />
+        <node id="DELAY4_L08" address="0xE" mask="0x000000FF" />
+        <node id="DELAY5_L08" address="0xE" mask="0x0000FF00" />
+        <node id="DELAY6_L08" address="0xE" mask="0x00FF0000" />
+        <node id="DELAY7_L08" address="0xE" mask="0xFF000000" />
+        <node id="FEOVFLW_01" address="0x2C" mask="0x00000001" />
+        <node id="FEOVFLW_02" address="0x2C" mask="0x00000002" />
+        <node id="FEOVFLW_03" address="0x2C" mask="0x00000004" />
+        <node id="FEOVFLW_04" address="0x2C" mask="0x00000008" />
+        <node id="FEOVFLW_05" address="0x2C" mask="0x00000010" />
+        <node id="FEOVFLW_06" address="0x2C" mask="0x00000020" />
+        <node id="FEOVFLW_07" address="0x2C" mask="0x00000040" />
+        <node id="FEOVFLW_08" address="0x2C" mask="0x00000080" />
+        <node id="FEOVFLW_09" address="0x2C" mask="0x00000100" />
+        <node id="FEOVFLW_10" address="0x2C" mask="0x00000200" />
+        <node id="FEOVFLW_11" address="0x2C" mask="0x00000400" />
+        <node id="FEOVFLW_12" address="0x2C" mask="0x00000800" />
+        <node id="FEOVFLW_13" address="0x2C" mask="0x00001000" />
+        <node id="FEOVFLW_14" address="0x2C" mask="0x00002000" />
+        <node id="FEOVFLW_15" address="0x2C" mask="0x00004000" />
+        <node id="FEOVFLW_16" address="0x2C" mask="0x00008000" />
+        <node id="FEOVFLW_17" address="0x2C" mask="0x00010000" />
+        <node id="FEOVFLW_18" address="0x2C" mask="0x00020000" />
+        <node id="FEOVFLW_19" address="0x2C" mask="0x00040000" />
+        <node id="FEOVFLW_20" address="0x2C" mask="0x00080000" />
+        <node id="FEOVFLW_21" address="0x2C" mask="0x00100000" />
+        <node id="FEOVFLW_22" address="0x2C" mask="0x00200000" />
+        <node id="FEOVFLW_23" address="0x2C" mask="0x00400000" />
+        <node id="FEOVFLW_24" address="0x2C" mask="0x00800000" />
+        <node id="FEOVFLW_25" address="0x2C" mask="0x01000000" />
+        <node id="FEOVFLW_26" address="0x2C" mask="0x02000000" />
+        <node id="FEOVFLW_27" address="0x2C" mask="0x04000000" />
+        <node id="FEOVFLW_28" address="0x2C" mask="0x08000000" />
+        <node id="FEOVFLW_ENABLE" address="0x2C" mask="0x80000000" />
+    </node>
+    <node id="TTC_SBIT_THRES"    address="0x4000100F" />
+    <node id="TTC_MBIT_THRES"    address="0x40001010" />
+    <node id="OTRIG_WIDTH_A"     address="0x40001011" mask="0x000000FF" />
+    <node id="OTRIG_WIDTH_B"     address="0x40001011" mask="0x0000FF00" />
+    <node id="TTC_DECODER_RST"   address="0x40001012" mask="0x00000001" />
+    <node id="ASYNC_STORAGE_EN"  address="0x40001013" mask="0x00000001" />
+    <node id="EOR_ASYNC_WAIT"    address="0x40001014" />
+    <node id="OTRIG_DISABLE_A"   address="0x40001015" mask="0x00000001" />
+    <node id="OTRIG_DISABLE_B"   address="0x40001016" mask="0x00000001" />
+    <node id="TRX_LEMO_SEL"      address="0x40001017" mask="0x00000001" />
+    <node id="TTS_LOCK_MISMATCH" address="0x40001018" />
+    <node id="POST_RST_TN_DELAY" address="0x40001019" />
+    <node id="POST_RST_TS_DELAY" address="0x4000101A" />
+    <node id="OTRIG_DELAY_A"     address="0x4000101B" />
+    <node id="OTRIG_DELAY_B"     address="0x4000101C" />
+    <node id="TTC_TRIG_DELAY"    address="0x4000101D" />
+    <node id="IDEAL_T9_A6_GAP"   address="0x4000101E" />
+    <node id="EIGHT_FILL_PERIOD" address="0x4000101F" />
+    <node id="CYCLE_GAP"         address="0x40001020" />
+    <node id="SUPERCYCLE_PERIOD" address="0x40001021" />
+    <node id="ITRIG_THRESHOLD"   address="0x40001022" />
+    <node id="ENABLE_ITRIG"      address="0x40001023" mask="0x00000001" />
+    <node id="FORCE_ITRIG"       address="0x40001023" mask="0x00000002" />
+    <node id="ENABLE_T9_ADJUST"  address="0x40001023" mask="0x00000004" />
+    <node id="RESET_T9_CORR"     address="0x40001023" mask="0x00000008" />
+    <node id="INTERNAL_BOC"      address="0x40001023" mask="0x00000010" />
+    <node id="INTERNAL_LASER_ON" address="0x40001023" mask="0x00001000" />
+    <node id="LASER_TRIG_ALWAYS" address="0x40001023" mask="0x00002000" />
+    <node id="IGNORE_T9_TRIGS"   address="0x40001023" mask="0x00004000" />
+    <node id="MAX_T9_A6_GAP"     address="0x40001024" />
+    <node id="BOC_OOSYNC_THRESH" address="0x40001026" />
+    <node id="SAFETY_DISCHG_TIM" address="0x40001027" />
+    <node id="DISCHG_DEADTIME"   address="0x40001028" />
+    <node id="CHARGE_DEADTIME"   address="0x40001029" />
+    <node id="QUAD_T9_DELAY"     address="0x4000102A" />
+    <node id="QUAD_T9_WIDTH"     address="0x4000102B" mask="0x00FFFFFF" />
+    <node id="QUAD_T9_ENABLE"    address="0x4000102B" mask="0x01000000" />
+    <node id="QUAD_A6_ENABLE"    address="0x4000102B" mask="0x02000000" />
+    <node id="ASYNC_START_DELAY" address="0x4000102D" mask="0x00FFFFFF" />
+    <node id="NO_BEAM_STRUCTURE" address="0x4000102D" mask="0x01000000" />
+
+    <!-- sequencer -->
+    <node id="SEQ0"  module="file://sequencer_table.xml" address="0x40002000" />
+    <node id="SEQ1"  module="file://sequencer_table.xml" address="0x40002100" />
+    <node id="SEQ2"  module="file://sequencer_table.xml" address="0x40002200" />
+    <node id="SEQ3"  module="file://sequencer_table.xml" address="0x40002300" />
+    <node id="SEQ4"  module="file://sequencer_table.xml" address="0x40002400" />
+    <node id="SEQ5"  module="file://sequencer_table.xml" address="0x40002500" />
+    <node id="SEQ6"  module="file://sequencer_table.xml" address="0x40002600" />
+    <node id="SEQ7"  module="file://sequencer_table.xml" address="0x40002700" />
+    <node id="SEQ8"  module="file://sequencer_table.xml" address="0x40002800" />
+    <node id="SEQ9"  module="file://sequencer_table.xml" address="0x40002900" />
+    <node id="SEQ10" module="file://sequencer_table.xml" address="0x40002A00" />
+    <node id="SEQ11" module="file://sequencer_table.xml" address="0x40002B00" />
+    <node id="SEQ12" module="file://sequencer_table.xml" address="0x40002C00" />
+    <node id="SEQ13" module="file://sequencer_table.xml" address="0x40002D00" />
+    <node id="SEQ14" module="file://sequencer_table.xml" address="0x40002E00" />
+    <node id="SEQ15" module="file://sequencer_table.xml" address="0x40002F00" />
+    <!-- A6-based triggers -->
+    <node id="DELAY" address="0x40003000" >
+        <node id="CHAN0"  module="file://trigger_delay_table.xml" address="0x000" />
+        <node id="CHAN1"  module="file://trigger_delay_table.xml" address="0x100" />
+        <node id="CHAN2"  module="file://trigger_delay_table.xml" address="0x200" />
+        <node id="CHAN3"  module="file://trigger_delay_table.xml" address="0x300" />
+        <node id="CHAN4"  module="file://trigger_delay_table.xml" address="0x400" />
+        <node id="CHAN5"  module="file://trigger_delay_table.xml" address="0x500" />
+        <node id="CHAN6"  module="file://trigger_delay_table.xml" address="0x600" />
+        <node id="CHAN7"  module="file://trigger_delay_table.xml" address="0x700" />
+        <node id="CHAN8"  module="file://trigger_delay_table.xml" address="0x800" />
+        <node id="CHAN9"  module="file://trigger_delay_table.xml" address="0x900" />
+        <node id="CHAN10" module="file://trigger_delay_table.xml" address="0xA00" />
+        <node id="CHAN11" module="file://trigger_delay_table.xml" address="0xB00" />
+        <node id="CHAN12" module="file://trigger_delay_table.xml" address="0xC00" />
+        <node id="CHAN13" module="file://trigger_delay_table.xml" address="0xD00" />
+    </node>
+    <node id="WIDTH" address="0x40013000" >
+        <node id="CHAN0"  module="file://trigger_width_table.xml" address="0x000" />
+        <node id="CHAN1"  module="file://trigger_width_table.xml" address="0x100" />
+        <node id="CHAN2"  module="file://trigger_width_table.xml" address="0x200" />
+        <node id="CHAN3"  module="file://trigger_width_table.xml" address="0x300" />
+        <node id="CHAN4"  module="file://trigger_width_table.xml" address="0x400" />
+        <node id="CHAN5"  module="file://trigger_width_table.xml" address="0x500" />
+        <node id="CHAN6"  module="file://trigger_width_table.xml" address="0x600" />
+        <node id="CHAN7"  module="file://trigger_width_table.xml" address="0x700" />
+        <node id="CHAN8"  module="file://trigger_width_table.xml" address="0x800" />
+        <node id="CHAN9"  module="file://trigger_width_table.xml" address="0x900" />
+        <node id="CHAN10" module="file://trigger_width_table.xml" address="0xA00" />
+        <node id="CHAN11" module="file://trigger_width_table.xml" address="0xB00" />
+        <node id="CHAN12" module="file://trigger_width_table.xml" address="0xC00" />
+        <node id="CHAN13" module="file://trigger_width_table.xml" address="0xD00" />
+    </node>
+    <!-- T9-based triggers -->
+    <node id="T9_DELAY" address="0x40004000" >
+        <node id="CHAN0"  module="file://t9_trigger_delay_table.xml" address="0x00" />
+        <node id="CHAN1"  module="file://t9_trigger_delay_table.xml" address="0x10" />
+        <node id="CHAN2"  module="file://t9_trigger_delay_table.xml" address="0x20" />
+        <node id="CHAN3"  module="file://t9_trigger_delay_table.xml" address="0x30" />
+    </node>
+    <node id="T9_CHANNELS_ENABLED"       address="0x40014000" mask="0x0000000F"/>
+    <node id="T9_CHANNELS_PULSE_WIDTH"   address="0x40014001" mask="0x000000FF"/>
+</node>    

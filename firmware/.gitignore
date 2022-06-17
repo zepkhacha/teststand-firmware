@@ -1,0 +1,34 @@
+# Ignore all
+*
+!.gitignore
+!README.txt
+
+# Folders
+!*/
+project*/
+ip/*/*/**/
+
+# Constraints
+!constraints/**/*.xdc
+
+# Sources
+!*.v
+!*.vhd
+!*.ngc
+!hdl/**/*.txt
+!DAQ_Link_7S/*.txt
+
+# IPs
+!ip/**/*.xci
+ip/**/*.v
+ip/**/*.vhd
+ip/**/*.ngc
+
+# Tcl Scripts
+!scripts/**/*.tcl
+
+# IPbus
+!ipbus/ipbus_core/scripts/addr_dec/*
+
+# Extra Files
+!extra/**/*

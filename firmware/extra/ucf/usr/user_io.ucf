@@ -1,0 +1,31 @@
+#
+#net  osc_sata_scl 				loc = am17	| iostandard =lvcmos25;					#bank#11		#io_l9p_t1_dqs_11					
+#net  osc_sata_sda 				loc = am18	| iostandard =lvcmos25;					#bank#11		#io_l9n_t1_dqs_11					
+#                                                                    			        		                      
+net  amc_tx_n<12> 				loc = ag17	| iostandard =lvcmos25;					#bank#11		#io_l18n_t2_11						
+net  amc_tx_n<13> 				loc = ak21	| iostandard =lvcmos25;					#bank#11		#io_l20n_t3_11						
+net  amc_tx_n<14> 				loc = ag21	| iostandard =lvcmos25;					#bank#11		#io_l22n_t3_11						
+net  amc_tx_n<15> 				loc = ah23	| iostandard =lvcmos25;					#bank#11		#io_l24n_t3_11						
+#                                                                    			        		                      
+net  amc_tx_p<12> 				loc = ag16	| iostandard =lvcmos25;					#bank#11		#io_l18p_t2_11						
+net  amc_tx_p<13> 				loc = aj21	| iostandard =lvcmos25;					#bank#11		#io_l20p_t3_11						
+net  amc_tx_p<14> 				loc = ag20	| iostandard =lvcmos25;					#bank#11		#io_l22p_t3_11						
+net  amc_tx_p<15> 				loc = ag23	| iostandard =lvcmos25;					#bank#11		#io_l24p_t3_11						
+#                                                                    			        		                      
+net  k7_amc_rx_n<12> 			loc = ah18	| iostandard =lvcmos25;					#bank#11		#io_l17n_t2_11						
+net  k7_amc_rx_n<13> 			loc = ak22	| iostandard =lvcmos25;					#bank#11		#io_l19n_t3_vref_11				
+net  k7_amc_rx_n<14> 			loc = aj20	| iostandard =lvcmos25;					#bank#11		#io_l21n_t3_dqs_11				
+net  k7_amc_rx_n<15> 			loc = ah22	| iostandard =lvcmos25;					#bank#11		#io_l23n_t3_11						
+#                                                                    			        		                      
+net  k7_amc_rx_p<12> 			loc = ah17	| iostandard =lvcmos25;					#bank#11		#io_l17p_t2_11						
+net  k7_amc_rx_p<13> 			loc = aj22	| iostandard =lvcmos25;					#bank#11		#io_l19p_t3_11						
+net  k7_amc_rx_p<14> 			loc = ah20	| iostandard =lvcmos25;					#bank#11		#io_l21p_t3_dqs_11				
+net  k7_amc_rx_p<15> 			loc = ag22	| iostandard =lvcmos25;					#bank#11		#io_l23p_t3_11						
+#                                                                    			        		                      
+net  k7_fabric_amc_rx_n03 		loc = al23	| iostandard =lvcmos25;					#bank#11		#io_l1n_t0_11						
+net  k7_fabric_amc_rx_p03 		loc = ak23	| iostandard =lvcmos25;					#bank#11		#io_l1p_t0_11						
+net  k7_fabric_amc_tx_n03 		loc = an22	| iostandard =lvcmos25;					#bank#11		#io_l2n_t0_11						
+net  k7_fabric_amc_tx_p03 		loc = am22	| iostandard =lvcmos25;					#bank#11		#io_l2p_t0_11								
+#                                                                    		
+net fpga_refclkout_n 			loc = am20	| iostandard =lvcmos25;					#bank#11		#io_l11n_t1_srcc_11										
+net fpga_refclkout_p 			loc = al20	| iostandard =lvcmos25;					#bank#11		#io_l11p_t1_srcc_11										

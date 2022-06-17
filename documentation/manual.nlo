@@ -1,0 +1,28 @@
+\nomenclatureentry{aAMC@[{AMC}]\begingroup Advanced Mezzanine Card\nomeqref {0}|nompageref}{2}
+\nomenclatureentry{aBME@[{BME}]\begingroup Biphase Mark Encoding\nomeqref {0}|nompageref}{2}
+\nomenclatureentry{aCCC@[{CCC}]\begingroup Clock and Controls Center\nomeqref {0}|nompageref}{2}
+\nomenclatureentry{aDAQ@[{DAQ}]\begingroup Data Acquisition\nomeqref {0}|nompageref}{2}
+\nomenclatureentry{aEEPROM@[{EEPROM}]\begingroup Electrically Erasable Programmable Read-Only Memory\nomeqref {0}|nompageref}{2}
+\nomenclatureentry{aFMC@[{FMC}]\begingroup FPGA Mezzanine Card\nomeqref {0}|nompageref}{2}
+\nomenclatureentry{aFPGA@[{FPGA}]\begingroup Field-Programmable Gate Array\nomeqref {0}|nompageref}{2}
+\nomenclatureentry{aGbE@[{GbE}]\begingroup Gigabit Ethernet\nomeqref {0}|nompageref}{2}
+\nomenclatureentry{aIP@[{IP}]\begingroup Internet Protocol\nomeqref {0}|nompageref}{2}
+\nomenclatureentry{aIPMI@[{IPMI}]\begingroup Intelligent Platform Management Interface\nomeqref {0}|nompageref}{2}
+\nomenclatureentry{aJTAG@[{JTAG}]\begingroup Joint Test Action Group\nomeqref {0}|nompageref}{2}
+\nomenclatureentry{aLED@[{LED}]\begingroup Light-Emitting Diode\nomeqref {0}|nompageref}{2}
+\nomenclatureentry{aLSB@[{LSB}]\begingroup Least Significant Bit\nomeqref {0}|nompageref}{2}
+\nomenclatureentry{aLVCMOS@[{LVCMOS}]\begingroup Low-Voltage Complementary Metal Oxide Semiconductor\nomeqref {0}|nompageref}{2}
+\nomenclatureentry{aLVDS@[{LVDS}]\begingroup Low-Voltage Differential Signaling\nomeqref {0}|nompageref}{2}
+\nomenclatureentry{aMAC@[{MAC}]\begingroup Media Access Control\nomeqref {0}|nompageref}{2}
+\nomenclatureentry{aMCH@[{MCH}]\begingroup $\mu$TCA Carrier Hub\nomeqref {0}|nompageref}{2}
+\nomenclatureentry{aMIDAS@[{MIDAS}]\begingroup Maximum Integrated Data Acquisition System\nomeqref {0}|nompageref}{2}
+\nomenclatureentry{aMMC@[{MMC}]\begingroup $\mu$TCA Management Controller\nomeqref {0}|nompageref}{2}
+\nomenclatureentry{aMSB@[{MSB}]\begingroup Most Significant Bit\nomeqref {0}|nompageref}{2}
+\nomenclatureentry{aPM@[{PM}]\begingroup Power Module\nomeqref {0}|nompageref}{2}
+\nomenclatureentry{aPLL@[{PLL}]\begingroup Phase-Locked Loop\nomeqref {0}|nompageref}{2}
+\nomenclatureentry{aSPI@[{SPI}]\begingroup Serial Peripheral Interface\nomeqref {0}|nompageref}{2}
+\nomenclatureentry{aTCA@[{TCA}]\begingroup Telecommunications Computing Architecture\nomeqref {0}|nompageref}{2}
+\nomenclatureentry{aTCP@[{TCP}]\begingroup Transmission Control Protocol\nomeqref {0}|nompageref}{2}
+\nomenclatureentry{aTTC@[{TTC}]\begingroup Timing, Trigger, and Control\nomeqref {0}|nompageref}{2}
+\nomenclatureentry{aTTS@[{TTS}]\begingroup Trigger Throttling System\nomeqref {0}|nompageref}{2}
+\nomenclatureentry{aWFD@[{WFD}]\begingroup Waveform Digitizer\nomeqref {0}|nompageref}{2}

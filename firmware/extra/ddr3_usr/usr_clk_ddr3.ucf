@@ -1,0 +1,6 @@
+net usr/ddr3_sys_rst_n	tig;
+
+net fabric_coax_or_osc_n 		loc = al19 | iostandard = lvds_25 | diff_term = true;		#bank#1	#io_l12n_t1_mrcc_11
+net fabric_coax_or_osc_p 		loc = al18 | iostandard = lvds_25 | diff_term = true;		#bank#1	#io_l12p_t1_mrcc_11
+net fabric_coax_or_osc_n 		tnm_net = "fabric_coax_or_osc";
+timespec ts_fabric_coax_or_osc = period "fabric_coax_or_osc" 25 ns;

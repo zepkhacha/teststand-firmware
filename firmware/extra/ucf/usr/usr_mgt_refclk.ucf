@@ -1,0 +1,41 @@
+#net  fmc_l8_gbtclk0_n 			loc = ah9;										#mgtrefclk0n_111					bank#111
+#net  fmc_l8_gbtclk0_p 			loc = ah10;										#mgtrefclk0p_111					bank#111
+#net  fmc_l8_gbtclk1_n 			loc = aj7;										#mgtrefclk1n_111					bank#111
+#net  fmc_l8_gbtclk1_p 			loc = aj8;										#mgtrefclk1p_111					bank#111
+#
+#net  osc_xpoint_a_n 			loc = ag7;										#mgtrefclk0n_112					bank#112
+#net  osc_xpoint_a_p 			loc = ag8;										#mgtrefclk0p_112					bank#112
+#net  ttc_mgt_xpoint_a_n 		loc = ah5;										#mgtrefclk1n_112					bank#112
+#net  ttc_mgt_xpoint_a_p 		loc = ah6;										#mgtrefclk1p_112					bank#112
+#
+#net  osc_xpoint_d_n 			loc = ac7;										#mgtrefclk0n_113					bank#113
+#net  osc_xpoint_d_p 			loc = ac8;										#mgtrefclk0p_113					bank#113
+#
+#
+#
+#net  osc_xpoint_b_n 			loc = w7;										#mgtrefclk0n_114					bank#114
+#net  osc_xpoint_b_p 			loc = w8;										#mgtrefclk0p_114					bank#114
+#net  ttc_mgt_xpoint_b_n 		loc = aa7;										#mgtrefclk1n_114					bank#114
+#net  ttc_mgt_xpoint_b_p 		loc = aa8;										#mgtrefclk1p_114					bank#114
+#
+#net  osc125_b_n 					loc = u7;										#mgtrefclk1n_115					bank#115
+#net  osc125_b_p 					loc = u8;										#mgtrefclk1p_115					bank#115
+#net  pcie_clk_n 					loc = r7;										#mgtrefclk0n_115					bank#115
+#net  pcie_clk_p 					loc = r8;										#mgtrefclk0p_115					bank#115
+#
+#net  fmc_l12_gbtclk0_a_n 		loc = j7;										#mgtrefclk0n_116					bank#116
+#net  fmc_l12_gbtclk0_a_p 		loc = j8;										#mgtrefclk0p_116					bank#116
+#net  fmc_l12_gbtclk1_a_n 		loc = l7;										#mgtrefclk1n_116					bank#116
+#net  fmc_l12_gbtclk1_a_p 		loc = l8;										#mgtrefclk1p_116					bank#116
+#
+#net  osc_xpoint_c_n 			loc = f5;										#mgtrefclk0n_117					bank#117
+#net  osc_xpoint_c_p 			loc = f6;										#mgtrefclk0p_117					bank#117
+#net  ttc_mgt_xpoint_c_n 		loc = g7;										#mgtrefclk1n_117					bank#117
+#net  ttc_mgt_xpoint_c_p 		loc = g8;										#mgtrefclk1p_117					bank#117
+#
+#net  fmc_l12_gbtclk0_b_n 		loc = e7;										#mgtrefclk0n_118					bank#118
+#net  fmc_l12_gbtclk0_b_p 		loc = e8;										#mgtrefclk0p_118					bank#118
+#net  fmc_l12_gbtclk1_b_n 		loc = h9;										#mgtrefclk1n_118					bank#118
+#net  fmc_l12_gbtclk1_b_p 		loc = h10;										#mgtrefclk1p_118					bank#118
+
+

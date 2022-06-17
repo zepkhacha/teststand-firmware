@@ -1,0 +1,11 @@
+DROP TABLE IF EXISTS gm2ccc_fanout_delays ;
+CREATE TABLE IF NOT EXISTS gm2ccc_fanout_delays (id INT NOT NULL,name VARCHAR(16) NOT NULL,slot_number INT NOT NULL, port_card VARCHAR(16) NOT NULL, port INT NOT NULL, value INT NOT NULL, timestamp TIMESTAMP NOT NULL, PRIMARY KEY (id,name,slot_number,port));
+GRANT ALL PRIVILEGES ON gm2ccc_fanout_delays TO gm2_admin;
+GRANT SELECT, INSERT, UPDATE ON gm2ccc_fanout_delays to gm2_writer;
+GRANT SELECT ON gm2ccc_fanout_delays to gm2_reader;
+ALTER SEQUENCE gm2ccc_fanout_delays_id_seq RESTART WITH 1;
+DROP SEQUENCE IF EXISTS gm2ccc_fanout_delays_id_seq;
+CREATE SEQUENCE gm2ccc_fanout_delays_id_seq;
+GRANT ALL PRIVILEGES ON gm2ccc_fanout_delays_id_seq TO gm2_admin;
+GRANT USAGE ON gm2ccc_fanout_delays_id_seq to gm2_writer;
+GRANT SELECT ON gm2ccc_fanout_delays_id_seq to gm2_reader;

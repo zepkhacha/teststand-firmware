@@ -1,0 +1,17 @@
+#net  fmc_l8_clk0 			loc = aj31 	| iostandard =lvcmos25;										#io_l13p_t2_mrcc_13		bank#13
+#net  fmc_l8_clk1 			loc = aj26 	| iostandard =lvcmos25;										#io_l13p_t2_mrcc_12		bank#12
+#net  fmc_l12_clk0 			loc = r31 	| iostandard =lvcmos25;										#io_l13p_t2_mrcc_15		bank#15
+#net  fmc_l12_clk1 			loc = g30 	| iostandard =lvcmos25;										#io_l13p_t2_mrcc_16		bank#16
+
+#net 		fmc_l8_clk0 		tnm_net = "fmc_l8_clk0";
+#timespec ts_fabric_clk = 	period "fmc_l8_clk0" 6.25 ns;
+
+#net 		fmc_l8_clk1 		tnm_net = "fmc_l8_clk1";
+#timespec ts_fabric_clk = 	period "fmc_l8_clk1" 6.25 ns;
+
+#net 		fmc_l12_clk0 		tnm_net = "fmc_l12_clk0";
+#timespec ts_fabric_clk = 	period "fmc_l12_clk0" 6.25 ns;
+
+#net 		fmc_l12_clk1 		tnm_net = "fmc_l12_clk1";
+#timespec ts_fabric_clk = 	period "fmc_l12_clk1" 6.25 ns;
+

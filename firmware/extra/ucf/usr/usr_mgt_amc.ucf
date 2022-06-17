@@ -1,0 +1,50 @@
+##############################
+# amc mgt
+##############################
+#net  amc_tx_n<1> 				loc = ah1;										#mgtxtxn1_113						bank#113
+#net  amc_tx_n<2> 				loc = af1;										#mgtxtxn2_113						bank#113
+#net  amc_tx_n<3> 				loc = ad2;										#mgtxtxp3_113						bank#113
+#net  amc_tx_n<4> 				loc = n3;										#mgtxtxn3_115						bank#115
+#net  amc_tx_n<5> 				loc = p1;										#mgtxtxn2_115						bank#115
+#net  amc_tx_n<6> 				loc = t1;										#mgtxtxn1_115						bank#115
+#net  amc_tx_n<7> 				loc = u3;										#mgtxtxn0_115						bank#115
+#net  amc_tx_n<8> 				loc = ab1;										#mgtxtxn0_114						bank#114
+#net  amc_tx_n<9> 				loc = y1;										#mgtxtxn1_114						bank#114
+#net  amc_tx_n<10> 				loc = w3;										#mgtxtxn2_114						bank#114
+#net  amc_tx_n<11> 				loc = v1;										#mgtxtxn3_114						bank#114
+#
+#net  amc_tx_p<1> 				loc = ah2;										#mgtxtxp1_113						bank#113
+#net  amc_tx_p<2> 				loc = af2;										#mgtxtxp2_113						bank#113
+#net  amc_tx_p<3> 				loc = ad1;										#mgtxtxn3_113						bank#113
+#net  amc_tx_p<4> 				loc = n4;										#mgtxtxp3_115						bank#115
+#net  amc_tx_p<5> 				loc = p2;										#mgtxtxp2_115						bank#115
+#net  amc_tx_p<6> 				loc = t2;										#mgtxtxp1_115						bank#115
+#net  amc_tx_p<7> 				loc = u4;										#mgtxtxp0_115						bank#115
+#net  amc_tx_p<8> 				loc = ab2;										#mgtxtxp0_114						bank#114
+#net  amc_tx_p<9> 				loc = y2;										#mgtxtxp1_114						bank#114
+#net  amc_tx_p<10> 				loc = w4;										#mgtxtxp2_114						bank#114
+#net  amc_tx_p<11>   			loc = v2;										#mgtxtxp3_114						bank#114
+#
+#net  k7_amc_rx_n<1> 			loc = af5;										#mgtxrxn1_113						bank#113
+#net  k7_amc_rx_n<2> 			loc = ae3;										#mgtxrxn2_113						bank#113
+#net  k7_amc_rx_n<3> 			loc = ac3;										#mgtxrxn3_113						bank#113
+#net  k7_amc_rx_n<4> 			loc = m5;										#mgtxrxn3_115						bank#115
+#net  k7_amc_rx_n<5> 			loc = p5;										#mgtxrxn2_115						bank#115
+#net  k7_amc_rx_n<6> 			loc = r3;										#mgtxrxn1_115						bank#115
+#net  k7_amc_rx_n<7> 			loc = t5;										#mgtxrxn0_115						bank#115
+#net  k7_amc_rx_n<8> 			loc = ab5;										#mgtxrxn0_114						bank#114
+#net  k7_amc_rx_n<9> 			loc = aa3;										#mgtxrxn1_114						bank#114
+#net  k7_amc_rx_n<10> 			loc = y5;										#mgtxrxn2_114						bank#114
+#net  k7_amc_rx_n<11> 			loc = v5;										#mgtxrxn3_114						bank#114
+#
+#net  k7_amc_rx_p<1> 			loc = af6;										#mgtxrxp1_113						bank#113
+#net  k7_amc_rx_p<2> 			loc = ae4;										#mgtxrxp2_113						bank#113
+#net  k7_amc_rx_p<3> 			loc = ac4;										#mgtxrxp3_113						bank#113
+#net  k7_amc_rx_p<4> 			loc = m6;										#mgtxrxp3_115						bank#115
+#net  k7_amc_rx_p<5> 			loc = p6;										#mgtxrxp2_115						bank#115
+#net  k7_amc_rx_p<6> 			loc = r4;										#mgtxrxp1_115						bank#115
+#net  k7_amc_rx_p<7> 			loc = t6;										#mgtxrxp0_115						bank#115
+#net  k7_amc_rx_p<8> 			loc = ab6;										#mgtxrxp0_114						bank#114
+#net  k7_amc_rx_p<9> 			loc = aa4;										#mgtxrxp1_114						bank#114
+#net  k7_amc_rx_p<10> 			loc = y6;										#mgtxrxp2_114						bank#114
+#net  k7_amc_rx_p<11> 			loc = v6;										#mgtxrxp3_114						bank#114

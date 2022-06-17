@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<node id="TOP">
+    <node id="COUNT" address="0x00" />
+    <node id="TRIG" >
+        <node id="TYPE0"  address="0x01" mask="0x0000001F" />
+        <node id="TYPE1"  address="0x01" mask="0x00001F00" />
+        <node id="TYPE2"  address="0x01" mask="0x001F0000" />
+        <node id="TYPE3"  address="0x01" mask="0x1F000000" />
+        <node id="TYPE4"  address="0x02" mask="0x0000001F" />
+        <node id="TYPE5"  address="0x02" mask="0x00001F00" />
+        <node id="TYPE6"  address="0x02" mask="0x001F0000" />
+        <node id="TYPE7"  address="0x02" mask="0x1F000000" />
+        <node id="TYPE8"  address="0x03" mask="0x0000001F" />
+        <node id="TYPE9"  address="0x03" mask="0x00001F00" />
+        <node id="TYPE10" address="0x03" mask="0x001F0000" />
+        <node id="TYPE11" address="0x03" mask="0x1F000000" />
+        <node id="TYPE12" address="0x04" mask="0x0000001F" />
+        <node id="TYPE13" address="0x04" mask="0x00001F00" />
+        <node id="TYPE14" address="0x04" mask="0x001F0000" />
+        <node id="TYPE15" address="0x04" mask="0x1F000000" />
+    </node>
+    <node id="PRE_TRIG">
+        <node id="GAP0"  address="0x05" />
+        <node id="GAP1"  address="0x06" />
+        <node id="GAP2"  address="0x07" />
+        <node id="GAP3"  address="0x08" />
+        <node id="GAP4"  address="0x09" />
+        <node id="GAP5"  address="0x0A" />
+        <node id="GAP6"  address="0x0B" />
+        <node id="GAP7"  address="0x0C" />
+        <node id="GAP8"  address="0x0D" />
+        <node id="GAP9"  address="0x0E" />
+        <node id="GAP10" address="0x0F" />
+        <node id="GAP11" address="0x10" />
+        <node id="GAP12" address="0x11" />
+        <node id="GAP13" address="0x12" />
+        <node id="GAP14" address="0x13" />
+        <node id="GAP15" address="0x14" />
+    </node>
+</node>

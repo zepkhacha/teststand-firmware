@@ -1,0 +1,5 @@
+**/*~
+uhal/__init__.pyc
+*.pyc
+*.csv
+.DS_Store
