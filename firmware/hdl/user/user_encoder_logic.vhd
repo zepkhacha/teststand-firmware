@@ -18,7 +18,7 @@ use unisim.vcomponents.all;
 entity user_encoder_logic is 
 port (
     -- clocks
-    ext_clk : in std_logic; -- 40.00 MHz
+    fmc_header_n : in std_logic_vector(31 downto 0); -- taken by example from user_trigger_logic.vhd -- 40.00 MHz
     ipb_clk : in std_logic; -- 31.25 MHz
 
     fabric_clk_p : in std_logic;
@@ -577,7 +577,7 @@ begin
     -- ---------------------------------
     clk_wiz_ext: entity work.clk_wiz_ext
     port map (
-        clk_in1  => ext_clk,
+        clk_in1  => fmc_header_n(0),
         clk_out1 => ext_clk_x4,
         locked   => ext_clk_lock
     );
@@ -630,7 +630,7 @@ begin
     -- ----------------------------------
     rst_ext_sync: entity work.sync_2stage
     port map (
-        clk      => ext_clk,
+        clk      => fmc_header_n(0),
         sig_i(0) => rst_ipb_stretch,
         sig_o(0) => hard_rst_ext
     );
@@ -654,7 +654,7 @@ begin
     -- ---------------------------------------
     soft_rst_ext_sync: entity work.sync_2stage
     port map (
-        clk      => ext_clk,
+        clk      => fmc_header_n(0),
         sig_i(0) => soft_rst_from_ipbus,
         sig_o(0) => soft_rst_ext
     );
@@ -717,7 +717,7 @@ begin
     -- --------------------------------------------
     auto_soft_rst_ext_sync: entity work.sync_2stage
     port map (
-        clk      => ext_clk,
+        clk      => fmc_header_n(0),
         sig_i(0) => auto_soft_rst_delay,
         sig_o(0) => auto_soft_rst_ext
     );
@@ -1070,7 +1070,7 @@ begin
     -- -----------------------------------------
     run_enable_ext_sync: entity work.sync_2stage
     port map (
-        clk      => ext_clk,
+        clk      => fmc_header_n(0),
         sig_i(0) => run_enable,
         sig_o(0) => run_enable_sync
     );
@@ -1078,7 +1078,7 @@ begin
     -- ----------------------------------------
     run_pause_ext_sync: entity work.sync_2stage
     port map (
-        clk      => ext_clk,
+        clk      => fmc_header_n(0),
         sig_i(0) => run_pause,
         sig_o(0) => run_pause_sync
     );
@@ -1096,7 +1096,7 @@ begin
     trigger_delay_a_ext_sync: entity work.sync_2stage
     generic map (nbr_bits => 32)
     port map (
-        clk   => ext_clk,
+        clk   => fmc_header_n(0),
         sig_i => trigger_delay_a,
         sig_o => trigger_delay_a_ext
     );
@@ -1104,7 +1104,7 @@ begin
     trigger_delay_b_ext_sync: entity work.sync_2stage
     generic map (nbr_bits => 32)
     port map (
-        clk   => ext_clk,
+        clk   => fmc_header_n(0),
         sig_i => trigger_delay_b,
         sig_o => trigger_delay_b_ext
     );
@@ -1112,7 +1112,7 @@ begin
     -- --------------------------------------------
     send_ofw_boc_sync_inst: entity work.sync_2stage
     port map (
-        clk      => ext_clk,
+        clk      => fmc_header_n(0),
         sig_i(0) => send_ofw_boc,
         sig_o(0) => send_ofw_boc_sync
     );
@@ -1130,7 +1130,7 @@ begin
     global_seq_count_sync_inst: entity work.sync_2stage
     generic map (nbr_bits => 4)
     port map (
-        clk   => ext_clk,
+        clk   => fmc_header_n(0),
         sig_i => global_seq_count,
         sig_o => global_seq_count_sync
     );
@@ -1139,7 +1139,7 @@ begin
     ofw_watchdog_theshold_sync_inst: entity work.sync_2stage
     generic map (nbr_bits => 24)
     port map (
-        clk   => ext_clk,
+        clk   => fmc_header_n(0),
         sig_i => ofw_watchdog_theshold,
         sig_o => ofw_watchdog_theshold_sync
     );
@@ -1148,7 +1148,7 @@ begin
     cycle_start_theshold_sync_inst: entity work.sync_2stage
     generic map (nbr_bits => 32)
     port map (
-        clk   => ext_clk,
+        clk   => fmc_header_n(0),
         sig_i => cycle_start_theshold,
         sig_o => cycle_start_theshold_sync
     );
@@ -1209,7 +1209,7 @@ begin
     var_width_a_ext_sync: entity work.sync_2stage
     generic map (nbr_bits => 8)
     port map (
-        clk   => ext_clk,
+        clk   => fmc_header_n(0),
         sig_i => var_width_a,
         sig_o => var_width_a_ext
     );
@@ -1218,7 +1218,7 @@ begin
     var_width_b_ext_sync: entity work.sync_2stage
     generic map (nbr_bits => 8)
     port map (
-        clk   => ext_clk,
+        clk   => fmc_header_n(0),
         sig_i => var_width_b,
         sig_o => var_width_b_ext
     );
@@ -1235,7 +1235,7 @@ begin
     eor_wait_count_sync_inst: entity work.sync_2stage
     generic map (nbr_bits => 32)
     port map (
-        clk   => ext_clk,
+        clk   => fmc_header_n(0),
         sig_i => eor_wait_count,
         sig_o => eor_wait_count_sync
     );
@@ -1243,7 +1243,7 @@ begin
     -- -------------------------------------------------
     trig_out_disable_a_ext_sync: entity work.sync_2stage
     port map (
-        clk      => ext_clk,
+        clk      => fmc_header_n(0),
         sig_i(0) => trig_out_disable_a,
         sig_o(0) => trig_out_disable_a_ext
     );
@@ -1251,7 +1251,7 @@ begin
     -- -------------------------------------------------
     trig_out_disable_b_ext_sync: entity work.sync_2stage
     port map (
-        clk      => ext_clk,
+        clk      => fmc_header_n(0),
         sig_i(0) => trig_out_disable_b,
         sig_o(0) => trig_out_disable_b_ext
     );
@@ -1260,7 +1260,7 @@ begin
     post_rst_delay_evt_cnt_sync_inst: entity work.sync_2stage
     generic map (nbr_bits => 32)
     port map (
-        clk   => ext_clk,
+        clk   => fmc_header_n(0),
         sig_i => post_rst_delay_evt_cnt,
         sig_o => post_rst_delay_evt_cnt_sync
     );
@@ -1269,7 +1269,7 @@ begin
     post_rst_delay_timestamp_sync_inst: entity work.sync_2stage
     generic map (nbr_bits => 32)
     port map (
-        clk   => ext_clk,
+        clk   => fmc_header_n(0),
         sig_i => post_rst_delay_timestamp,
         sig_o => post_rst_delay_timestamp_sync
     );
@@ -1279,7 +1279,7 @@ begin
     post_rst_delay_async_sync_inst: entity work.sync_2stage
     generic map (nbr_bits => 24)
     port map (
-        clk   => ext_clk,
+        clk   => fmc_header_n(0),
         sig_i => post_rst_delay_async,
         sig_o => post_rst_delay_async_sync
     );
@@ -1293,7 +1293,7 @@ begin
     daq_throttle_requested <= or_reduce(daq_frontend_ofw_throttle) and enable_daq_fe_throttle;
     daq_throttle_requested_sync_inst : entity work.sync_2stage
     port map (
-        clk   => ext_clk,
+        clk   => fmc_header_n(0),
         sig_i(0) => daq_throttle_requested,
         sig_o(0) => daq_throttle_requested_sync
     );
@@ -1311,7 +1311,7 @@ begin
     -- Internal triggering status based on length of trigger pulse passed by trigger FC7
     trx_lemo_measure: entity work.trigger_length_counter
     port map (
-        clock          => ext_clk,
+        clock          => fmc_header_n(0),
         reset          => hard_rst_ext,
         pulse_in       => aux_lemo_a,
         pulse_out      => measured_trigger,
@@ -1322,7 +1322,7 @@ begin
     -- trigger pulse (passed by trigger FC7) to trigger sequencer
     trx_lemo_conv: entity work.level_to_pulse
     port map (
-        clk   => ext_clk,
+        clk   => fmc_header_n(0),
         sig_i => measured_trigger,
         sig_o => acc_trigger
     );
@@ -1330,13 +1330,13 @@ begin
     latch_clock_enable <= measured_trigger or acc_trigger;
     pulsify_clear: entity work.level_to_pulse
     port map (
-        clk   => ext_clk,
+        clk   => fmc_header_n(0),
         sig_i => clear_latched_trigger,
         sig_o => clear_latched_trigger_pulse
     );
     delay_clear_latch: entity work.pulse_delay
     port map (
-        clock     => ext_clk,
+        clock     => fmc_header_n(0),
         delay     => trig_latch_clear_delay,
         pulse_in  => clear_latched_trigger_pulse,
         pulse_out => clear_latched_trigger_delayed
@@ -1346,7 +1346,7 @@ begin
        INIT => '0' ) -- Initial value of latch ( '0' or '1' )
     port map (
         Q   => latched_trigger,       -- Data output
-        C   => ext_clk,               -- Clock input
+        C   => fmc_header_n(0),               -- Clock input
         CE  => latch_clock_enable,    -- Clock enable input
         CLR => clear_latched_trigger_delayed, -- Asynchronous clear / reset input
         D   => acc_trigger            -- Data input
@@ -1356,7 +1356,7 @@ begin
     reset_local_counter <= run_in_progress and ( doing_run_checks or resetting_clients or finding_cycle_start);
     local_sequence_counter: entity work.sequence_counter
     port map (
-       clk     => ext_clk,
+       clk     => fmc_header_n(0),
        reset   => reset_local_counter,
        input_pulse => acc_trigger,
        pulse_count => fill_count_local
@@ -1365,7 +1365,7 @@ begin
     -- monitor the timing of the a6 signal relative to the boc to see if we've gotten out of sync
     oos_check: entity work.sequence_sync_monitor
     port map (
-       clock       => ext_clk,
+       clock       => fmc_header_n(0),
        reset       => rst_ext,
        boc_in      => begin_of_cycle,
        a6_in       => acc_trigger,
@@ -1375,7 +1375,7 @@ begin
     oos_count: entity work.input_counter
     generic map ( nbr_bits => 8 )
     port map (
-        clk         => ext_clk,
+        clk         => fmc_header_n(0),
         reset       => rst_ext,
         input_pulse => boc_oos,
         pulse_count => missed_A6_count
@@ -1385,21 +1385,21 @@ begin
 
     it_start_conv: entity work.level_to_pulse
     port map (
-        clk   => ext_clk,
+        clk   => fmc_header_n(0),
         sig_i => internal_trigger_strt,
         sig_o => internal_trigger_strt_pulse
     );
 
     it_stop_conv: entity work.level_to_pulse
     port map (
-        clk   => ext_clk,
+        clk   => fmc_header_n(0),
         sig_i => internal_trigger_stop,
         sig_o => internal_trigger_stop_pulse
     );
 
     -- it_a6mi_conv: entity work.level_to_pulse
     -- port map (
-    --     clk   => ext_clk,
+    --     clk   => fmc_header_n(0),
     --     sig_i => missed_a6_seq_restart,
     --     sig_o => missed_a6_seq_restart_pulse
     -- );
@@ -1413,7 +1413,7 @@ begin
 
     trigger_from_ttc_sync_ext: entity work.sync_2stage
     port map (
-        clk      => ext_clk,
+        clk      => fmc_header_n(0),
         sig_i(0) => trigger_from_ttc,
         sig_o(0) => trigger_from_ttc_esync
     );
@@ -1545,7 +1545,7 @@ begin
     sfp_l12_enabled_ports_ext_inst: entity work.sync_2stage
     generic map (nbr_bits => 8)
     port map (
-        clk   => ext_clk,
+        clk   => fmc_header_n(0),
         sig_i => sfp_l12_enabled_ports,
         sig_o => sfp_l12_enabled_ports_ext
     );
@@ -1725,7 +1725,7 @@ begin
     -- control the output trigger specs
     boc_controller: entity work.boc_controller
     port map (
-        clk               => ext_clk,
+        clk               => fmc_header_n(0),
         trigger_in        => begin_of_cycle,
         trigger_disable_a => trig_out_disable_a_ext,
         trigger_disable_b => trig_out_disable_b_ext,
@@ -1740,7 +1740,7 @@ begin
     -- send a handshake signal for the overflow_warning
     ofw_handshake_inst: entity work.ofw_handshake
     port map (
-        clock        => ext_clk,
+        clock        => fmc_header_n(0),
         reset        => hard_rst_ext,
         overflow     => combined_overflow_warning,
         basic_width  => var_width_b_ext,
@@ -1943,7 +1943,7 @@ begin
     -- -----------------------------------------------
     overflow_warning_ext_sync: entity work.sync_2stage
     port map (
-        clk      => ext_clk,
+        clk      => fmc_header_n(0),
         sig_i(0) => overflow_warning,
         sig_o(0) => overflow_warning_sync
     );
@@ -2030,9 +2030,9 @@ begin
     -- -----------------------
 
     -- 2-stage synchronizer
-    process(ext_clk)
+    process(fmc_header_n(0))
     begin
-        if rising_edge(ext_clk) then
+        if rising_edge(fmc_header_n(0)) then
             seq_trig_type_sync1 <= seq_trig_type;
             seq_trig_type_sync2 <= seq_trig_type_sync1;
 
@@ -2051,7 +2051,7 @@ begin
     -- ----------------------------------------------------
     enable_async_storage_sync_inst: entity work.sync_2stage
     port map (
-        clk      => ext_clk,
+        clk      => fmc_header_n(0),
         sig_i(0) => enable_async_storage,
         sig_o(0) => enable_async_storage_sync
     );
@@ -2060,7 +2060,7 @@ begin
     l12_eeprom_reg_out_sync_inst: entity work.sync_2stage
     generic map (nbr_bits => 128)
     port map (
-        clk   => ext_clk,
+        clk   => fmc_header_n(0),
         sig_i => l12_eeprom_reg_out,
         sig_o => l12_eeprom_reg_out_sync
     );
@@ -2077,7 +2077,7 @@ begin
     -- --------------------------------------------------------
     l12_eeprom_reg_out_valid_sync_inst: entity work.sync_2stage
     port map (
-        clk      => ext_clk,
+        clk      => fmc_header_n(0),
         sig_i(0) => l12_eeprom_reg_out_valid_stretch,
         sig_o(0) => l12_eeprom_reg_out_valid_sync
     );
@@ -2086,7 +2086,7 @@ begin
     trigger_sequencer_usr: entity work.trigger_sequencer_wrapper
     port map (
         -- clock and reset
-        clk => ext_clk,
+        clk => fmc_header_n(0),
         rst => rst_ext,
 
         -- reset interface
@@ -2202,9 +2202,9 @@ begin
     );
 
     -- trigger information state machine
-    process(ext_clk)
+    process(fmc_header_n(0))
     begin
-        if rising_edge(ext_clk) then
+        if rising_edge(fmc_header_n(0)) then
             -- State 0
             if trig_info_sm_state = '0' then
                 tis_state <= "01";
@@ -2244,7 +2244,7 @@ begin
         wr_rst_busy    => wr_rst_busy_trig,
         rd_rst_busy    => rd_rst_busy_trig,
         m_aclk         => osc125_b_bufg,
-        s_aclk         => ext_clk,
+        s_aclk         => fmc_header_n(0),
         s_aresetn      => rst_ext_n,
         s_axis_tvalid  => s_trig_info_fifo_tvalid,
         s_axis_tready  => s_trig_info_fifo_tready,
@@ -2257,7 +2257,7 @@ begin
 
     count_trigger_for_mark_debug: entity work.input_counter
     port map (
-        clk                    => ext_clk,
+        clk                    => fmc_header_n(0),
         reset                  => rst_ext,
         input_pulse            => channel_a_from_seq,
         pulse_count            => channel_a_counter
@@ -2265,7 +2265,7 @@ begin
 
     count_ttc_trigger_for_mark_debug: entity work.input_counter
     port map (
-        clk                    => ext_clk,
+        clk                    => fmc_header_n(0),
         reset                  => rst_ext,
         input_pulse            => trigger_from_ttc_esync,
         pulse_count            => ttc_esync_counter
