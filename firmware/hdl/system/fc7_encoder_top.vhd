@@ -12,7 +12,7 @@ use work.user_package.all;
 library unisim;
 use unisim.vcomponents.all;
 
-entity fc7_encoder_top is 
+entity fc7_encoder_top is
 port (
     -- ------------
     -- common ports
@@ -70,7 +70,7 @@ port (
     daq_rxn : in  std_logic;
     daq_txp : out std_logic;
     daq_txn : out std_logic;
-    
+
     -- TTC
     fabric_clk_p : in std_logic;
     fabric_clk_n : in std_logic;
@@ -90,7 +90,8 @@ port (
     -- -------------
 
     -- FMC clock
-    fmc_l8_clk0 : in std_logic;
+    -- fmc_l8_clk0 : in std_logic;
+    fmc_header_n : in std_logic_vector(31 downto 0); -- replacing fmc_l8_clk0 with fmc_header_n(0)
 
     -- FMC LEMOs
     aux_lemo_a : in  std_logic;
@@ -147,7 +148,7 @@ architecture top of fc7_encoder_top is
     -- CDCE
     signal cdce_sync_clk : std_logic;
     signal cdce_sync     : std_logic;
-    
+
 begin
 
 -- -----------
@@ -168,7 +169,7 @@ CDCE_SYNC_R0_FDRE: FDRE port map (d => cdce_sync, q => cdce_sync_r0, c => cdce_s
 -- clock buffering
 -- ---------------
 
-FMC_L8_CLK_0_IBUFG: IBUFG port map (I => fmc_l8_clk0, O => ext_clk_buf);
+FMC_L8_CLK_0_IBUFG: IBUFG port map (I => fmc_header_n(0), O => ext_clk_buf);
 EXT_CLK_BUFG      : BUFG  port map (I => ext_clk_buf, O => ext_clk    );
 
 -- --------------------
@@ -262,7 +263,7 @@ port map (
     -- FMC status
     fmc_l12_absent => fmc_l12_absent,
     fmc_l8_absent  => fmc_l8_absent,
-    
+
     -- FMC LEMOs
     aux_lemo_a => aux_lemo_a,
     aux_lemo_b => aux_lemo_b,
