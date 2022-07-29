@@ -15,7 +15,7 @@ use work.user_version_package.all;
 library unisim;
 use unisim.vcomponents.all;
 
-entity user_encoder_logic is 
+entity user_encoder_logic is
 port (
     -- clocks
     ext_clk : in std_logic; -- 40.00 MHz
@@ -35,9 +35,9 @@ port (
     bot_led1 : out std_logic_vector(2 downto 0);
     bot_led2 : out std_logic_vector(2 downto 0);
 
-    fmc_l8_led1 : out std_logic_vector(1 downto 0);
-    fmc_l8_led2 : out std_logic_vector(1 downto 0);
-    fmc_l8_led  : out std_logic_vector(8 downto 3);
+    -- fmc_l8_led1 : out std_logic_vector(1 downto 0);
+    -- fmc_l8_led2 : out std_logic_vector(1 downto 0);
+    -- fmc_l8_led  : out std_logic_vector(8 downto 3);
 
     -- FMC status
     fmc_l12_absent : in std_logic;
@@ -75,7 +75,7 @@ port (
     daq_rxn : in  std_logic;
     daq_txp : out std_logic;
     daq_txn : out std_logic;
-    
+
     -- TTC signal
     ttc_rx_p : in std_logic;
     ttc_rx_n : in std_logic;
@@ -85,7 +85,7 @@ port (
     cdce_pwrdown_o  : out std_logic;
     cdce_sync_o     : out std_logic;
     cdce_sync_clk_o : out std_logic;
-    
+
     -- IPbus
     ipb_rst_i  : in  std_logic;
     ipb_mosi_i : in  ipb_wbus_array(0 to nbr_usr_enc_slaves-1);
@@ -173,7 +173,7 @@ architecture usr of user_encoder_logic is
     signal stat_reg : stat_reg_t;
     signal ctrl_reg : ctrl_reg_t;
     signal seqr_reg : array_16x32x32bit;
-    
+
     -- delays
     signal trigger_delay_a, trigger_delay_a_ext : std_logic_vector(31 downto 0);
     signal trigger_delay_b, trigger_delay_b_ext : std_logic_vector(31 downto 0);
@@ -321,7 +321,7 @@ architecture usr of user_encoder_logic is
     signal s_trig_info_fifo_tready, m_trig_info_fifo_tready : std_logic;
     signal wr_rst_busy_trig                                 : std_logic;
     signal rd_rst_busy_trig                                 : std_logic;
-    
+
     signal trig_info_sm_state  : std_logic;
     signal trig_info_fifo_full : std_logic;
 
@@ -489,7 +489,7 @@ architecture usr of user_encoder_logic is
 
     -- FPGA
     signal reprog_fpga_from_ipb : std_logic;
-    
+
     -- helps keep signals present to allow timing studies within Vivadp debugs
     signal ttc_esync_counter : std_logic_vector(31 downto 0);
     signal channel_a_counter : std_logic_vector(31 downto 0);
@@ -773,19 +773,19 @@ begin
     bot_led2(2) <= '1';
 
     -- EDA-02708 FMC
-    fmc_l8_led(8) <= ttc_clk_lock and system_status(0); -- misaligned or disconnected
-    fmc_l8_led(7) <= ttc_clk_lock and system_status(1); -- error
-    fmc_l8_led(6) <= ttc_clk_lock and system_status(2); -- sync lost
-    fmc_l8_led(5) <= ttc_clk_lock and system_status(3); -- busy
-    fmc_l8_led(4) <= ttc_clk_lock and system_status(4); -- overflow warning
-    fmc_l8_led(3) <= ttc_clk_lock and system_status(5); -- ready
-
-    fmc_l8_led2(0) <= '1'   when run_in_progress = '1' and run_aborted = '0' and run_pause = '0' else
-                      blink when run_in_progress = '1' and run_aborted = '0' and run_pause = '1' else '0';
-    fmc_l8_led2(1) <= run_aborted;
-    
-    fmc_l8_led1(0) <= '0';
-    fmc_l8_led1(1) <= doing_run_checks or resetting_clients or finding_cycle_start;
+    -- fmc_l8_led(8) <= ttc_clk_lock and system_status(0); -- misaligned or disconnected
+    -- fmc_l8_led(7) <= ttc_clk_lock and system_status(1); -- error
+    -- fmc_l8_led(6) <= ttc_clk_lock and system_status(2); -- sync lost
+    -- fmc_l8_led(5) <= ttc_clk_lock and system_status(3); -- busy
+    -- fmc_l8_led(4) <= ttc_clk_lock and system_status(4); -- overflow warning
+    -- fmc_l8_led(3) <= ttc_clk_lock and system_status(5); -- ready
+    --
+    -- fmc_l8_led2(0) <= '1'   when run_in_progress = '1' and run_aborted = '0' and run_pause = '0' else
+    --                   blink when run_in_progress = '1' and run_aborted = '0' and run_pause = '1' else '0';
+    -- fmc_l8_led2(1) <= run_aborted;
+    --
+    -- fmc_l8_led1(0) <= '0';
+    -- fmc_l8_led1(1) <= doing_run_checks or resetting_clients or finding_cycle_start;
 
 
     -- -----------------
@@ -909,7 +909,7 @@ begin
         stat_reg(98 + 4*i) <= x"00000000"; -- RESERVED FOR FANOUT USE
         stat_reg(99 + 4*i) <= x"00000000"; -- RESERVED FOR FANOUT USE
     end generate;
-	
+
     trig_type_num_regs: for i in 0 to 31 generate
     begin
         stat_reg(128 + i) <= x"00" & trig_type_num(i);
@@ -1504,7 +1504,7 @@ begin
         sfp_alarm_tx_power_low  => sfp_en_alarm_l12_tx_power_low,
         sfp_alarm_rx_power_high => sfp_en_alarm_l12_rx_power_high,
         sfp_alarm_rx_power_low  => sfp_en_alarm_l12_rx_power_low,
-          
+
         -- SFP warning flags
         sfp_warning_temp_high     => sfp_en_warning_l12_temp_high,
         sfp_warning_temp_low      => sfp_en_warning_l12_temp_low,
@@ -1617,7 +1617,7 @@ begin
         sfp_alarm_tx_power_low  => open,
         sfp_alarm_rx_power_high => open,
         sfp_alarm_rx_power_low  => open,
-          
+
         -- SFP warning flags
         sfp_warning_temp_high     => open,
         sfp_warning_temp_low      => open,
@@ -1639,7 +1639,7 @@ begin
         sda_pad_o    => i2c_l8_sda_o,   -- output to tri-state driver
         sda_padoen_o => i2c_l8_sda_oen  -- enable signal for tri-state driver
     );
-    
+
     -- L8 I2C signals
     i2c_l8_scl <= 'Z' when i2c_l8_scl_oen = '1' else i2c_l8_scl_o;
     i2c_l8_sda <= 'Z' when i2c_l8_sda_oen = '1' else i2c_l8_sda_o;
@@ -1701,7 +1701,7 @@ begin
     -- | D | C | ||
     -- | B | A | ||
     -- --------- ||
-    
+
     sfp_tx_gen: for i in 0 to 7 generate
     begin
         -- synchronize delays
@@ -1913,7 +1913,7 @@ begin
     local_sync_lost <= not tts_lock_mux;
     local_overflow  <= trig_info_fifo_full;
     -- for encoder we do not care about the mbit/sbit errors
-    --  from old local_error definition:          error_ttc_sbit_limit = '1' or error_ttc_mbit_limit   = '1' or 
+    --  from old local_error definition:          error_ttc_sbit_limit = '1' or error_ttc_mbit_limit   = '1' or
     -- define local and system states
     process(osc125_b_bufg)
     begin
@@ -2015,7 +2015,7 @@ begin
             else
                 error_ttc_sbit_limit <= '0';
             end if;
-            
+
             if ttc_mbit_error_cnt > ttc_mbit_error_threshold then
                 error_ttc_mbit_limit <= '1';
             else
