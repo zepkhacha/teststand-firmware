@@ -66,9 +66,9 @@ port (
     i2c_l12_rst : out   std_logic;
     i2c_l12_int : in    std_logic;
 
-    i2c_l8_scl : inout std_logic;
-    i2c_l8_sda : inout std_logic;
-    i2c_l8_rst : out   std_logic;
+    -- i2c_l8_scl : inout std_logic;
+    -- i2c_l8_sda : inout std_logic;
+    -- i2c_l8_rst : out   std_logic;
 
     -- DAQ link
     daq_rxp : in  std_logic;
@@ -133,7 +133,7 @@ architecture usr of user_encoder_logic is
     signal auto_soft_rst_delay   : std_logic;
 
     signal i2c_l12_rst_from_ipb     : std_logic;
-    signal i2c_l8_rst_from_ipb      : std_logic;
+    -- signal i2c_l8_rst_from_ipb      : std_logic;
     signal tts_rx_rst_l12_from_ipb  : std_logic;
     signal ttc_decoder_rst_from_ipb : std_logic;
     signal ttc_decoder_rst          : std_logic;
@@ -392,10 +392,14 @@ architecture usr of user_encoder_logic is
     signal l12_eeprom_reg_out_valid_sync    : std_logic;
 
     -- FMC I2C
-    signal i2c_fmc_scl_o,   i2c_l8_scl_o,   i2c_l12_scl_o   : std_logic;
-    signal i2c_fmc_scl_oen, i2c_l8_scl_oen, i2c_l12_scl_oen : std_logic;
-    signal i2c_fmc_sda_o,   i2c_l8_sda_o,   i2c_l12_sda_o   : std_logic;
-    signal i2c_fmc_sda_oen, i2c_l8_sda_oen, i2c_l12_sda_oen : std_logic;
+    -- signal i2c_fmc_scl_o,   i2c_l8_scl_o,   i2c_l12_scl_o   : std_logic;
+    -- signal i2c_fmc_scl_oen, i2c_l8_scl_oen, i2c_l12_scl_oen : std_logic;
+    -- signal i2c_fmc_sda_o,   i2c_l8_sda_o,   i2c_l12_sda_o   : std_logic;
+    -- signal i2c_fmc_sda_oen, i2c_l8_sda_oen, i2c_l12_sda_oen : std_logic;
+    signal i2c_fmc_scl_o,   i2c_l12_scl_o   : std_logic;
+    signal i2c_fmc_scl_oen, i2c_l12_scl_oen : std_logic;
+    signal i2c_fmc_sda_o,   i2c_l12_sda_o   : std_logic;
+    signal i2c_fmc_sda_oen, i2c_l12_sda_oen : std_logic;
 
     signal fmcs_ready                                  : std_logic;
     signal fmc_eeprom_error_i2c,  fmc_eeprom_error_id  : std_logic;
@@ -967,7 +971,7 @@ begin
     i2c_l12_en_start         <= ctrl_reg( 9)(16);
     -- RESERVED              <= ctrl_reg( 9)(17);
     i2c_l12_rst_from_ipb     <= ctrl_reg( 9)(18);           -- default set
-    i2c_l8_rst_from_ipb      <= ctrl_reg( 9)(19);           -- default set
+    -- i2c_l8_rst_from_ipb      <= ctrl_reg( 9)(19);           -- default set
     -- RESERVED              <= ctrl_reg( 9)(20);
     -- RESERVED              <= ctrl_reg( 9)(24 downto 21);
     l12_fmc_id_request       <= ctrl_reg(10)( 7 downto  0);
@@ -1551,99 +1555,99 @@ begin
     );
 
     -- --------------------------------------------
-    i2c_l8_top_wrapper: entity work.i2c_top_wrapper
-    port map (
-        -- clock and reset
-        clk   => osc125_b_bufg,
-        reset => hard_rst_osc125,
-
-        -- control signals
-        fmc_loc               => "11",          -- L8 LOC
-        fmc_mod_type          => "00000001",    -- EDA-02708-V2 FMC
-        fmc_absent            => fmc_l8_absent, -- FMC absent signal
-        sfp_requested_ports_i => "00000000",    -- not used
-        i2c_en_start          => '0',           -- not used
-        i2c_rd_start          => '0',           -- not used
-
-        -- generic read interface
-        channel_sel_in       => "00000000",
-        eeprom_map_sel_in    => '0',
-        eeprom_start_adr_in  => "00000000",
-        eeprom_num_regs_in   => "000000",
-        eeprom_reg_out       => open,
-        eeprom_reg_out_valid => open,
-
-        -- status signals
-        sfp_enabled_ports => open,
-        sfp_sn            => open,
-        sfp_mod_abs       => open,
-        sfp_tx_fault      => open,
-        sfp_rx_los        => open,
-
-        change_mod_abs  => open,
-        change_tx_fault => open,
-        change_rx_los   => open,
-
-        fs_state  => l8_fs_state,
-        st_state  => l8_st_state,
-        ssc_state => l8_ssc_state,
-        sgr_state => l8_sgr_state,
-
-        -- warning signals
-        change_error_mod_abs  => open,
-        change_error_tx_fault => open,
-        change_error_rx_los   => open,
-
-        -- error signals
-        error_fmc_absent   => error_l8_fmc_absent,
-        error_fmc_mod_type => error_l8_fmc_mod_type,
-        error_fmc_int_n    => error_l8_fmc_int_n,
-        error_startup_i2c  => error_l8_startup_i2c,
-
-        sfp_en_error_mod_abs    => open,
-        sfp_en_error_sfp_type   => open,
-        sfp_en_error_tx_fault   => open,
-        sfp_en_error_sfp_alarms => open,
-        sfp_en_error_i2c_chip   => open,
-
-        -- SFP alarm flags
-        sfp_alarm_temp_high     => open,
-        sfp_alarm_temp_low      => open,
-        sfp_alarm_vcc_high      => open,
-        sfp_alarm_vcc_low       => open,
-        sfp_alarm_tx_bias_high  => open,
-        sfp_alarm_tx_bias_low   => open,
-        sfp_alarm_tx_power_high => open,
-        sfp_alarm_tx_power_low  => open,
-        sfp_alarm_rx_power_high => open,
-        sfp_alarm_rx_power_low  => open,
-
-        -- SFP warning flags
-        sfp_warning_temp_high     => open,
-        sfp_warning_temp_low      => open,
-        sfp_warning_vcc_high      => open,
-        sfp_warning_vcc_low       => open,
-        sfp_warning_tx_bias_high  => open,
-        sfp_warning_tx_bias_low   => open,
-        sfp_warning_tx_power_high => open,
-        sfp_warning_tx_power_low  => open,
-        sfp_warning_rx_power_high => open,
-        sfp_warning_rx_power_low  => open,
-
-        -- I2C signals
-        i2c_int_n_i  => '1',            -- active-low I2C interrupt signal (not used)
-        scl_pad_i    => i2c_l8_scl,     -- input from external pin
-        scl_pad_o    => i2c_l8_scl_o,   -- output to tri-state driver
-        scl_padoen_o => i2c_l8_scl_oen, -- enable signal for tri-state driver
-        sda_pad_i    => i2c_l8_sda,     -- input from external pin
-        sda_pad_o    => i2c_l8_sda_o,   -- output to tri-state driver
-        sda_padoen_o => i2c_l8_sda_oen  -- enable signal for tri-state driver
-    );
+    -- i2c_l8_top_wrapper: entity work.i2c_top_wrapper
+    -- port map (
+    --     -- clock and reset
+    --     clk   => osc125_b_bufg,
+    --     reset => hard_rst_osc125,
+    --
+    --     -- control signals
+    --     fmc_loc               => "11",          -- L8 LOC
+    --     fmc_mod_type          => "00000001",    -- EDA-02708-V2 FMC
+    --     fmc_absent            => fmc_l8_absent, -- FMC absent signal
+    --     sfp_requested_ports_i => "00000000",    -- not used
+    --     i2c_en_start          => '0',           -- not used
+    --     i2c_rd_start          => '0',           -- not used
+    --
+    --     -- generic read interface
+    --     channel_sel_in       => "00000000",
+    --     eeprom_map_sel_in    => '0',
+    --     eeprom_start_adr_in  => "00000000",
+    --     eeprom_num_regs_in   => "000000",
+    --     eeprom_reg_out       => open,
+    --     eeprom_reg_out_valid => open,
+    --
+    --     -- status signals
+    --     sfp_enabled_ports => open,
+    --     sfp_sn            => open,
+    --     sfp_mod_abs       => open,
+    --     sfp_tx_fault      => open,
+    --     sfp_rx_los        => open,
+    --
+    --     change_mod_abs  => open,
+    --     change_tx_fault => open,
+    --     change_rx_los   => open,
+    --
+    --     fs_state  => l8_fs_state,
+    --     st_state  => l8_st_state,
+    --     ssc_state => l8_ssc_state,
+    --     sgr_state => l8_sgr_state,
+    --
+    --     -- warning signals
+    --     change_error_mod_abs  => open,
+    --     change_error_tx_fault => open,
+    --     change_error_rx_los   => open,
+    --
+    --     -- error signals
+    --     error_fmc_absent   => error_l8_fmc_absent,
+    --     error_fmc_mod_type => error_l8_fmc_mod_type,
+    --     error_fmc_int_n    => error_l8_fmc_int_n,
+    --     error_startup_i2c  => error_l8_startup_i2c,
+    --
+    --     sfp_en_error_mod_abs    => open,
+    --     sfp_en_error_sfp_type   => open,
+    --     sfp_en_error_tx_fault   => open,
+    --     sfp_en_error_sfp_alarms => open,
+    --     sfp_en_error_i2c_chip   => open,
+    --
+    --     -- SFP alarm flags
+    --     sfp_alarm_temp_high     => open,
+    --     sfp_alarm_temp_low      => open,
+    --     sfp_alarm_vcc_high      => open,
+    --     sfp_alarm_vcc_low       => open,
+    --     sfp_alarm_tx_bias_high  => open,
+    --     sfp_alarm_tx_bias_low   => open,
+    --     sfp_alarm_tx_power_high => open,
+    --     sfp_alarm_tx_power_low  => open,
+    --     sfp_alarm_rx_power_high => open,
+    --     sfp_alarm_rx_power_low  => open,
+    --
+    --     -- SFP warning flags
+    --     sfp_warning_temp_high     => open,
+    --     sfp_warning_temp_low      => open,
+    --     sfp_warning_vcc_high      => open,
+    --     sfp_warning_vcc_low       => open,
+    --     sfp_warning_tx_bias_high  => open,
+    --     sfp_warning_tx_bias_low   => open,
+    --     sfp_warning_tx_power_high => open,
+    --     sfp_warning_tx_power_low  => open,
+    --     sfp_warning_rx_power_high => open,
+    --     sfp_warning_rx_power_low  => open,
+    --
+    --     -- I2C signals
+    --     i2c_int_n_i  => '1',            -- active-low I2C interrupt signal (not used)
+    --     scl_pad_i    => i2c_l8_scl,     -- input from external pin
+    --     scl_pad_o    => i2c_l8_scl_o,   -- output to tri-state driver
+    --     scl_padoen_o => i2c_l8_scl_oen, -- enable signal for tri-state driver
+    --     sda_pad_i    => i2c_l8_sda,     -- input from external pin
+    --     sda_pad_o    => i2c_l8_sda_o,   -- output to tri-state driver
+    --     sda_padoen_o => i2c_l8_sda_oen  -- enable signal for tri-state driver
+    -- );
 
     -- L8 I2C signals
-    i2c_l8_scl <= 'Z' when i2c_l8_scl_oen = '1' else i2c_l8_scl_o;
-    i2c_l8_sda <= 'Z' when i2c_l8_sda_oen = '1' else i2c_l8_sda_o;
-    i2c_l8_rst <= i2c_l8_rst_from_ipb; -- active-low reset
+    -- i2c_l8_scl <= 'Z' when i2c_l8_scl_oen = '1' else i2c_l8_scl_o;
+    -- i2c_l8_sda <= 'Z' when i2c_l8_sda_oen = '1' else i2c_l8_sda_o;
+    -- i2c_l8_rst <= i2c_l8_rst_from_ipb; -- active-low reset
 
     -- assert when I2C state machines are in their MONITOR state;
     -- except for L8 SSC state machine, which is held in reset

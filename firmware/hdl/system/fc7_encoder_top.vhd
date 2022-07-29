@@ -112,9 +112,9 @@ port (
     i2c_l12_rst : out   std_logic; -- active-low
     i2c_l12_int : in    std_logic; -- active-low
 
-    i2c_l8_scl : inout std_logic;
-    i2c_l8_sda : inout std_logic;
-    i2c_l8_rst : out   std_logic; -- active-low
+    -- i2c_l8_scl : inout std_logic;
+    -- i2c_l8_sda : inout std_logic;
+    -- i2c_l8_rst : out   std_logic; -- active-low
 
     -- FMC SFP
     sfp_l12_rx_p : in  std_logic_vector(7 downto 0);
@@ -287,9 +287,9 @@ port map (
     i2c_l12_rst => i2c_l12_rst,
     i2c_l12_int => i2c_l12_int,
 
-    i2c_l8_scl => i2c_l8_scl,
-    i2c_l8_sda => i2c_l8_sda,
-    i2c_l8_rst => i2c_l8_rst,
+    -- i2c_l8_scl => i2c_l8_scl,
+    -- i2c_l8_sda => i2c_l8_sda,
+    -- i2c_l8_rst => i2c_l8_rst,
 
     -- DAQ link
     daq_rxp => daq_rxp,
