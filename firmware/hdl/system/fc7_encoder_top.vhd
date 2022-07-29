@@ -102,9 +102,9 @@ port (
     tr1_lemo_n : in  std_logic;
 
     -- FMC LEDs
-    fmc_l8_led1 : out std_logic_vector(1 downto 0);
-    fmc_l8_led2 : out std_logic_vector(1 downto 0);
-    fmc_l8_led  : out std_logic_vector(8 downto 3);
+    -- fmc_l8_led1 : out std_logic_vector(1 downto 0);
+    -- fmc_l8_led2 : out std_logic_vector(1 downto 0);
+    -- fmc_l8_led  : out std_logic_vector(8 downto 3);
 
     -- FMC I2C
     i2c_l12_scl : inout std_logic;
@@ -256,9 +256,9 @@ port map (
     bot_led1 => bot_led1,
     bot_led2 => bot_led2,
 
-    fmc_l8_led1 => fmc_l8_led1,
-    fmc_l8_led2 => fmc_l8_led2,
-    fmc_l8_led  => fmc_l8_led,
+    -- fmc_l8_led1 => fmc_l8_led1,
+    -- fmc_l8_led2 => fmc_l8_led2,
+    -- fmc_l8_led  => fmc_l8_led,
 
     -- FMC status
     fmc_l12_absent => fmc_l12_absent,

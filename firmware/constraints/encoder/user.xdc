@@ -13,17 +13,17 @@ set_property IOSTANDARD LVCMOS25 [get_ports i2c_l8_scl]
 set_property IOSTANDARD LVCMOS25 [get_ports i2c_l8_sda]
 set_property IOSTANDARD LVCMOS25 [get_ports i2c_l8_rst]
 
-set_property IOSTANDARD LVCMOS25 [get_ports {fmc_l8_led1[0]}]
-set_property IOSTANDARD LVCMOS25 [get_ports {fmc_l8_led1[1]}]
-set_property IOSTANDARD LVCMOS25 [get_ports {fmc_l8_led2[0]}]
-set_property IOSTANDARD LVCMOS25 [get_ports {fmc_l8_led2[1]}]
-
-set_property IOSTANDARD LVCMOS25 [get_ports {fmc_l8_led[3]}]
-set_property IOSTANDARD LVCMOS25 [get_ports {fmc_l8_led[4]}]
-set_property IOSTANDARD LVCMOS25 [get_ports {fmc_l8_led[5]}]
-set_property IOSTANDARD LVCMOS25 [get_ports {fmc_l8_led[6]}]
-set_property IOSTANDARD LVCMOS25 [get_ports {fmc_l8_led[7]}]
-set_property IOSTANDARD LVCMOS25 [get_ports {fmc_l8_led[8]}]
+#set_property IOSTANDARD LVCMOS25 [get_ports {fmc_l8_led1[0]}]
+#set_property IOSTANDARD LVCMOS25 [get_ports {fmc_l8_led1[1]}]
+#set_property IOSTANDARD LVCMOS25 [get_ports {fmc_l8_led2[0]}]
+#set_property IOSTANDARD LVCMOS25 [get_ports {fmc_l8_led2[1]}]
+#
+#set_property IOSTANDARD LVCMOS25 [get_ports {fmc_l8_led[3]}]
+#set_property IOSTANDARD LVCMOS25 [get_ports {fmc_l8_led[4]}]
+#set_property IOSTANDARD LVCMOS25 [get_ports {fmc_l8_led[5]}]
+#set_property IOSTANDARD LVCMOS25 [get_ports {fmc_l8_led[6]}]
+#set_property IOSTANDARD LVCMOS25 [get_ports {fmc_l8_led[7]}]
+#set_property IOSTANDARD LVCMOS25 [get_ports {fmc_l8_led[8]}]
 
 # ##################
 # L8 Pin Assignments
